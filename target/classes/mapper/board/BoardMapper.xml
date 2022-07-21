@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+	<!-- 게시글 전체조회 -->
+	<select id="getList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+			select 
+				MEM_NO,
+				REP_NM,
+				PST_NO,
+				MNG_NM,
+				MNG_REG,
+				PST_CTNT,
+				MOD_REG,
+				VIEW_CNT
+			from 
+				new_schema.tb_pst_info 
+			order by 
+				PST_NO DESC
+	</select>
+	
+	<!-- 검색 -->
+  <select id="getSearch" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    select
+      PST_NO,
+      REP_NM,
+      PST_CTNT,
+      MEM_NO,
+      MNG_NM,
+      MNG_REG,
+      MOD_NM,
+      MOD_REG,
+      VIEW_CNT
+    from
+      new_schema.tb_pst_info
+    where 1 = 1
+      <if test="type=='T'.toString()">
+        AND REP_NM like CONCAT('%',#{keyword},'%')
+      </if>
+      <if test="type=='W'.toString()">
+        AND MNG_NM like CONCAT('%',#{keyword},'%')
+      </if>
+      AND PST_NO<![CDATA[>]]>0 
+    order by 
+      PST_NO DESC
+  </select>
+  
+  <!-- 총게시글갯수 -->
+  <select id="getTotalCount" resultType="int">  
+    <![CDATA[ 
+      select
+        count(*) 
+      from
+        new_schema.tb_pst_info
+      where
+    ]]>
+      PST_NO<![CDATA[>]]> 0
+  </select>
+	<!-- 조회 -->
+  <select id="read" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    SELECT
+      PST_NO,
+      REP_NM,
+      PST_CTNT,
+      MEM_NO,
+      MNG_NM,
+      MNG_REG,
+      MOD_NM,
+      MOD_REG,
+      VIEW_CNT
+    FROM
+      new_schema.tb_pst_info
+    WHERE
+      PST_NO = #{pstNo}
+  </select>
+	
+	<!-- 등록 -->
+  <insert id="addFree" parameterType="java.util.HashMap">
+    INSERT INTO new_schema.tb_pst_info (
+        MEM_NO
+      ,  REP_NM
+      ,  MNG_NM
+      ,  MNG_REG
+      ,  PST_CTNT
+      )
+    VALUES (
+      #{memNo}
+      ,#{pstNm}
+      ,#{writer}
+      ,NOW()
+      ,#{pstCtnt}
+      )
+  </insert>
+	
+	<!-- 수정 -->
+	<update id="update" parameterType="java.util.HashMap">
+		UPDATE 
+			tb_pst_info
+		SET
+			MEM_NO = #{memNo},
+			PST_NO = #{pstNo},
+			REP_NM = #{pstNm},
+			MOD_NM = #{writer},
+			MOD_REG = NOW(),
+			VIEW_CNT = #{viewCnt},
+			PST_CTNT = #{pstCtnt}
+		WHERE 1=1
+		AND
+			PST_NO = #{pstNo}
+	</update>
+	
+	<!-- 조회수 업데이트 -->
+	<update id="updateViewCnt" parameterType="java.util.HashMap">
+		UPDATE 
+			new_schema.tb_pst_info
+		SET
+			VIEW_CNT = VIEW_CNT+1
+		WHERE
+			PST_NO = #{pstNo}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="java.util.HashMap">
+		DELETE
+		FROM
+			new_schema.tb_pst_info
+		WHERE 1=1
+		AND
+			PST_NO = #{pstNo}
+	</delete>
+</mapper>

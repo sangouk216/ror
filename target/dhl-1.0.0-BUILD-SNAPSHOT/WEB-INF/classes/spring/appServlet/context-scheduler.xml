@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+	
+<!-- 	<bean id="task" class="com.agp.dhl.process.task.Task"/>
+	
+	<bean id="generateGeneReportSchedulingJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="task" />
+		<property name="targetMethod" value="processGenerateGeneReport" />
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="generateGeneReportCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="generateGeneReportSchedulingJob" />
+		<property name="cronExpression" value="0 0/10 * ? * *" />10분마다
+	</bean>
+	
+	<bean id="interfaceOrderStatusInfoSchedulingJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="task" />
+		<property name="targetMethod" value="processInterfaceOrderStatusInfo" />
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="interfaceOrderStatusInfoCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="interfaceOrderStatusInfoSchedulingJob" />
+		<property name="cronExpression" value="0 10 0 ? * *" />00시 10분
+	</bean>
+	
+	검진권 반품 확정대기 - 확정 상태 변경
+	<bean id="interfaceRfdDbInfo" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="task" />
+		<property name="targetMethod" value="processInterfaceRfdDbInfo" />
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="interfaceRfdDb" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="interfaceRfdDbInfo" />
+		<property name="cronExpression" value="0/5 * * ? * *" />
+	</bean> 
+	
+	휴면예정 배치
+	<bean id="memDmtExpBat" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="task" />
+		<property name="targetMethod" value="processMemDmtExpBat" />
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="processMemDmtExpBatTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="memDmtExpBat" />
+		<property name="cronExpression" value="0 30 1 ? * *" />
+	</bean>
+	
+	휴면 배치
+	<bean id="memDmtBat" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="task" />
+		<property name="targetMethod" value="processMemDmtBat" />
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="processMemDmtBatTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="memDmtBat" />
+		<property name="cronExpression" value="0 0 2 ? * *" />
+	</bean>
+	
+	모바일전송 결과 
+	<bean id="MobSendRsltUpt" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="task" />
+		<property name="targetMethod" value="processMobSendRslt" />
+		<property name="concurrent" value="false" />
+	</bean>
+	
+	<bean id="processMobSendRsltTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="MobSendRsltUpt" />
+		<property name="cronExpression" value="0/5 * * ? * *" />
+	</bean> 
+	
+	 
+	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+			 	<ref bean="generateGeneReportCronTrigger"/>
+			 	<ref bean="interfaceOrderStatusInfoCronTrigger"/>
+				<ref bean="interfaceRfdDb"/>		
+				<ref bean="processMemDmtExpBatTrigger"/>
+				<ref bean="processMemDmtBatTrigger"/>	 	
+			 	<ref bean="processMobSendRsltTrigger"/>
+				
+				<ref bean="interfaceVchrDb"/>
+			 	<ref bean="rollbackCustDbStatusCronTrigger"/>
+			 	<ref bean="interfaceGeneAnlsInfoCronTrigger"/>
+	 			
+			</list>
+		</property>
+	</bean> -->
+</beans>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+		
+		
+	<http pattern="/resources/**" security="none"/>
+	<http pattern="/favicon.ico" security="none"/>
+	<http pattern="/admin/login" security="none"/>
+	<http pattern="/admin/db/getRprtFile" security="none"/>
+	<http pattern="/member/care" security="none"/>
+	<!-- <http pattern="/admin/loginProcess" security="none"/> -->
+	<!-- <http pattern="/admin/db/makeGeneAnlsReport" security="none"/> -->	
+	
+	<!-- 
+	<http auto-config="true" use-expressions="true" disable-url-rewriting="true" request-matcher="regex">
+	 -->
+	<http auto-config="true" use-expressions="true" disable-url-rewriting="true" pattern="/admin/**" authentication-manager-ref="dhublabManager">
+		<intercept-url pattern="/admin/user/*" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/admin/db/*" access="hasRole('ROLE_DHUBLAB')" />
+		<intercept-url pattern="/admin/kit/*" access="hasRole('ROLE_DHUBLAB')" />
+		<intercept-url pattern="/admin/system/*" access="hasRole('ROLE_DHUBLAB')" />
+		<intercept-url pattern="/admin/mdex/*" access="hasRole('ROLE_MDEX_CTR')" />
+		<intercept-url pattern="/admin/**" access="authenticated" />
+		<headers>
+        	<frame-options policy="SAMEORIGIN"/>
+		</headers>
+		<csrf disabled="true"/>
+		<form-login 
+			login-page="/admin/login" 
+			authentication-failure-url="/admin/login?status=fail"
+			always-use-default-target="true"
+			login-processing-url="/admin/loginProcess"
+			username-parameter="id"
+			password-parameter="pwd"
+			default-target-url="/admin/main" />
+			
+		<logout logout-success-url="/admin/login" invalidate-session="true" logout-url="/admin/logout"/>
+		<!-- 
+		<session-management invalid-session-url="/admin/login"/>
+		 -->
+		
+		<!-- 
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="filterSecurityInterceptor"/>
+		 -->	
+		<custom-filter after="EXCEPTION_TRANSLATION_FILTER" ref="ajaxExceptionTranslationFilter"/>
+	</http>
+	
+	<authentication-manager id="dhublabManager">		
+		<authentication-provider user-service-ref="authUserServiceImpl">
+			<password-encoder ref="passwordEncoder"/>
+		</authentication-provider>
+	</authentication-manager>
+	
+	<beans:bean id="authUserServiceImpl" class="com.agp.common.service.security.AuthUserServiceImpl">
+		<beans:property name="dataSource" ref="dataSource"></beans:property>
+		<beans:property name="rolePrefix" value=""></beans:property>
+		<beans:property name="usersByUsernameQuery" value="SELECT USER_CD, USER_ID, PWD, USER_NM FROM TB_USER_INFO WHERE USE_YN = '1' AND USER_ID = ?"></beans:property>
+		<!-- <beans:property name="authoritiesByUsernameQuery" value='SELECT AUTHORITY FROM TB_USER_AUTHORITIES WHERE USER_ID = ?'></beans:property> --> 
+		<beans:property name="authoritiesByUsernameQuery" value="SELECT AUTHORITY FROM TB_USER_INFO A, TB_AUTH_DTL_INFO B WHERE A.USE_YN = '1' AND A.AUTH_CD = B.AUTH_CD AND A.USER_CD = ?"></beans:property>
+	</beans:bean>
+	
+	
+	<beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+		
+	<beans:bean id="ajaxExceptionTranslationFilter" class="com.agp.common.service.security.AjaxExceptionTranslationFilter">
+		<beans:constructor-arg name="authenticationEntryPoint">
+			<beans:bean class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+				<beans:constructor-arg name="loginFormUrl" value="/admin/login"/>
+			</beans:bean>
+		</beans:constructor-arg>
+		<beans:property name="accessDeniedHandler" ref="accessDeniedHandlerImpl"/>
+	</beans:bean>
+	
+	<beans:bean id="accessDeniedHandlerImpl" class="com.agp.common.service.security.AccessDeniedHandlerImpl">
+		<beans:property name="accessDeniedPage" value="/admin/login"/>
+	</beans:bean>
+	
+	<!--
+	<beans:bean id="filterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+		<beans:property name="authenticationManager" ref="org.springframework.security.authenticationManager"/>
+		<beans:property name="accessDecisionManager" ref="accessDecisionManager"/>
+		<beans:property name="securityMetadataSource" ref="reloadableFilterInvocationSecurityMetadataSource" />
+	</beans:bean>
+	 -->
+	
+	
+	<!--
+	<beans:bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+		<beans:constructor-arg>
+			<beans:list>
+				<beans:bean class="org.springframework.security.access.vote.RoleVoter">
+					<beans:property name="rolePrefix" value=""/>
+				</beans:bean>
+				<beans:bean class="org.springframework.security.access.vote.RoleHierarchyVoter">
+    				<beans:constructor-arg ref="roleHierarchy" />
+				</beans:bean>
+				<beans:bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
+			</beans:list>
+		</beans:constructor-arg>
+		<beans:property name="allowIfAllAbstainDecisions" value="false" />
+	</beans:bean>
+	 -->
+	
+	<!-- 
+	<beans:bean id="reloadableFilterInvocationSecurityMetadataSource" class="com.agp.common.service.security.ReloadableFilterInvocationSecurityMetadataSource">
+		<beans:constructor-arg ref="requestMap" />
+		<beans:property name="securedResourcePatternService" ref="securedResourcePatternService" />
+	</beans:bean>
+	 -->
+	
+	
+	<!-- 
+	<beans:bean id="securedResourcePatternService" class="com.agp.common.service.security.SecuredResourcePatternServiceImpl">
+		<beans:property name="securedResourcePatternDAO" ref="securedResourcePatternDAO" />
+	</beans:bean>
+	<beans:bean id="securedResourcePatternDAO" class="com.agp.common.service.security.SecuredResourcePatternDAO">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="sqlRolesAndUrl" value="SELECT
+			A.RESOURCE_PATTERN AS URL, B.AUTHORITY AS AUTHORITY 
+			FROM TB_SECURED_URL_RESOURCES A, TB_SECURED_RESOURCES_ROLE B 
+			WHERE A.RESOURCE_ID = B.RESOURCE_ID 
+		"/>
+		<beans:property name="sqlHierarchicalRoles" value="SELECT A.CHILD_AUTHORITY CHILD, A.PARENT_AUTHORITY PARENT 
+			FROM TB_AUTHORITY_
+ A LEFT JOIN TB_AUTHORITY_HIERARCHY B ON A.CHILD_AUTHORITY = A.PARENT_AUTHORITY"/>
+		<beans:property name="sqlRolesAndUrl" value="SELECT NULL AS URL, NULL AS AUTHORITY FROM DUAL WHERE 1=2"/>
+		<beans:property name="sqlHierarchicalRoles" value="SELECT NULL AS CHILD, NULL AS PARENT FROM DUAL WHERE 1=2"/>
+	</beans:bean>
+	-->
+	
+	<!-- 
+	<beans:bean id="requestMap" class="com.agp.common.service.security.UrlResourcesMapFactoryBean" init-method="init">
+		<beans:property name="securedResourcePatternService" ref="securedResourcePatternService"/>
+	</beans:bean>
+	
+	<beans:bean id="roleHierarchy" class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl" >
+		<beans:property name="hierarchy" ref="hierarchyStrings"/>
+	</beans:bean>
+	<beans:bean id="hierarchyStrings" class="com.agp.common.service.security.HierarchyStringsFactoryBean" init-method="init">
+		<beans:property name="securedResourcePatternService" ref="securedResourcePatternService"/>
+	</beans:bean>
+		
+	-->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<http auto-config="true" use-expressions="true" disable-url-rewriting="true" pattern="/member/**" authentication-manager-ref="dhublabMember">
+		
+		<!--
+		<intercept-url pattern="/member/**" access="permitAll" />
+		-->
+		<intercept-url pattern="/member/mbs" access="authenticated" />
+		
+		<headers>
+        	<frame-options policy="SAMEORIGIN"/>
+		</headers>
+		<csrf disabled="true"/>
+		<form-login 
+			login-page="/member/care" 
+			authentication-failure-url="/member/care?status=fail"
+			always-use-default-target="true"
+			login-processing-url="/member/loginProcess"
+			username-parameter="id"
+			password-parameter="pw"
+			default-target-url="/member/mbs" />
+			
+		<logout logout-success-url="/member/care" invalidate-session="true" logout-url="/member/care2"/>
+		<session-management invalid-session-url="/member/care"/>
+		<custom-filter after="EXCEPTION_TRANSLATION_FILTER" ref="ajaxExceptionTranslationFilter2"/>
+	</http>
+	
+	<authentication-manager id="dhublabMember">		
+		<authentication-provider user-service-ref="authCareUserServiceImpl">
+			<password-encoder ref="passwordEncoder"/>
+		</authentication-provider>
+	</authentication-manager>
+	
+	<beans:bean id="authCareUserServiceImpl" class="com.agp.common.service.security.AuthCareUserServiceImpl">
+		<beans:property name="dataSource" ref="dataSource"></beans:property>
+		<beans:property name="rolePrefix" value=""></beans:property>
+		<beans:property name="usersByUsernameQuery" value="SELECT MEM_NO, ID AS USER_ID, PWD, MEM_NM FROM TB_MBS_MEM_INFO WHERE USE_YN = '1' AND ID = ?"></beans:property>
+		<!-- <beans:property name="authoritiesByUsernameQuery" value="SELECT AUTHORITY FROM TB_USER_INFO A, TB_AUTH_DTL_INFO B WHERE A.USE_YN = '1' AND A.AUTH_CD = B.AUTH_CD AND A.USER_CD = ?"></beans:property> -->
+	</beans:bean>
+	
+	
+	<beans:bean id="ajaxExceptionTranslationFilter2" class="com.agp.common.service.security.AjaxExceptionTranslationFilter2">
+		<beans:constructor-arg name="authenticationEntryPoint">
+			<beans:bean class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+				<beans:constructor-arg name="loginFormUrl" value="/member/care"/>
+			</beans:bean>
+		</beans:constructor-arg>
+		<beans:property name="accessDeniedHandler" ref="accessDeniedHandlerImpl2"/>
+	</beans:bean>
+	
+	<beans:bean id="accessDeniedHandlerImpl2" class="com.agp.common.service.security.AccessDeniedHandlerImpl2">
+		<beans:property name="accessDeniedPage" value="/member/care"/>
+	</beans:bean>	
+</beans:beans>

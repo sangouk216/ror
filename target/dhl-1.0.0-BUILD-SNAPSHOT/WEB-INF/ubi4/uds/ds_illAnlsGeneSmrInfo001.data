@@ -1,0 +1,12 @@
+0,ILL_NO,질병번호
+1,ILL_NM,질병명
+2,GENE_NM,유전자명
+3,GENE_LOC,유전자위치
+4,DG_GENE,위험인자명칭
+5,SF_GENE,안전인자명칭
+6,GENE_TYPE001,유전자형종류1
+7,GENE_TYPE002,유전자형종류2
+8,GENE_TYPE003,유전자형종류3
+9,CUST_GENE,검사대상자유전자
+10,RISK_TYPE,검사대상자백분위표기명칭    
+11,RLL_RISK,검사대상자상대적위험도

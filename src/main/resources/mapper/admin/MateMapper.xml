@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin.mate">
+
+	<select id="mateOneSelectInfo" parameterType="java.util.HashMap"
+		resultType="java.util.HashMap">
+		SELECT
+		MAT_NO
+		, MAIN_C_CD
+		, MID_C_CD
+		, MAT_NM
+		, USE_YN
+
+		FROM new_schema.TB_MAT_INFO
+		WHERE 1=1
+		AND USE_YN = '1' LIMIT 1
+	</select>
+	<!-- 한 개의 값만 가져오기. -->
+
+	<insert id="mateSelectInfo" parameterType="java.util.HashMap">
+		insert into
+		TB_MAT_INFO
+		(
+		MAT_NM
+		) values (
+		#{matNm}
+		)
+	</insert>
+	<!-- 입력. -->
+
+	<select id="selectMainMateInfo"
+		parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT
+		MAT_NO
+		, MAIN_C_CD
+		, MID_C_CD
+		FROM new_schema.TB_MAT_INFO
+		WHERE 1=1
+		AND USE_YN = '1'
+		GROUP BY MAIN_C_CD
+	</select>
+	<!-- 대분류 카테고리 보이기. -->
+
+	<select id="selectMateMidInfo" parameterType="java.util.HashMap"
+		resultType="java.util.HashMap">
+		SELECT
+		MAT_NO
+		,MID_C_CD
+		,MAT_NM
+		FROM new_schema.TB_MAT_INFO
+		WHERE 1=1
+		AND USE_YN = '1'
+		AND MAIN_C_CD = #{mateCCd}
+		GROUP BY MID_C_CD
+	</select>
+	<!-- 중분류 카테고리 보이기. -->
+
+	<select id="selectMateNmInfo" parameterType="java.util.HashMap"
+		resultType="java.util.HashMap">
+		SELECT
+		MAT_NO
+		,MAT_NM
+		FROM new_schema.TB_MAT_INFO
+		WHERE 1=1
+		AND USE_YN = '1'
+		AND MID_C_CD = #{midCCd}
+	</select>
+	<!-- 소분류 카테고리 보이기. -->
+
+	<!-- 재료 관리자 삭제 -->
+	<delete id="mateMngDelete" parameterType="java.util.HashMap">
+		DELETE FROM
+		new_schema.TB_MAT_INFO
+		WHERE 1=1
+		AND
+		MAT_NM = #{matNm}
+	</delete>
+	
+	<!-- 수정 --> 
+ 	<update id="mateMngChange" parameterType="java.util.HashMap">
+		UPDATE 
+        	new_schema.TB_MAT_INFO 
+        SET
+       		 MAT_NM = #{matNm}
+        WHERE 1=1
+        AND 
+        	MAT_NO = #{matNo};
+ 	</update>
+ 	
+ 	<!-- 추가 -->
+	<insert id="mateMngPlus" parameterType="java.util.HashMap">
+		
+		INSERT INTO TB_MAT_INFO  (
+			 MAIN_C_CD
+			  ,MAT_NM
+			)
+		VALUES (
+		    #{mainCd}
+		   ,#{matNm}
+					
+		)
+	</insert>
+</mapper>

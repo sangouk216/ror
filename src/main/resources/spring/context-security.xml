@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+   xmlns:beans="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/security
+      http://www.springframework.org/schema/security/spring-security.xsd">
+      
+   <!-- 로그인을 안태울 경로 -->
+   <http pattern="/resources/**" security="none"/>
+   <http pattern="/favicon.ico" security="none"/>
+
+  
+   <!-- <http pattern="/admin/loginProcess" security="none"/> -->
+   <!-- <http pattern="/admin/db/makeGeneAnlsReport" security="none"/> -->   
+   
+<!--     <http auto-config="true" use-expressions="true"></http> -->
+<!--    <http auto-config="true" use-expressions="true" disable-url-rewriting="true" pattern="/admin/**" authentication-manager-ref="dhublabManager"> -->
+
+<!--       <intercept-url pattern="/admin/**" access="authenticated" /> -->
+<!--       <headers> -->
+<!--            <frame-options policy="SAMEORIGIN"/> -->
+<!--       </headers> -->
+<!--       <csrf disabled="true"/> -->
+<!--       <form-login  -->
+<!--          login-page="/admin/login"  -->
+<!--          authentication-failure-url="/admin/login?status=fail" -->
+<!--          always-use-default-target="true" -->
+<!--          login-processing-url="/admin/loginProcess" -->
+<!--          username-parameter="id" -->
+<!--          password-parameter="pwd" -->
+<!--          default-target-url="/admin/main" /> -->
+         
+<!--       <logout logout-success-url="/admin/login" invalidate-session="true" logout-url="/admin/logout"/> -->
+      
+<!--       <session-management invalid-session-url="/admin/login"/> -->
+      
+      
+      
+<!--       <custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="filterSecurityInterceptor"/> -->
+         
+<!--       <custom-filter after="EXCEPTION_TRANSLATION_FILTER" ref="ajaxExceptionTranslationFilter"/> -->
+<!--    </http> -->
+   
+<!--    <authentication-manager id="dhublabManager">      
+      <authentication-provider user-service-ref="authUserServiceImpl">
+         <password-encoder ref="passwordEncoder"/>
+      </authentication-provider>
+   </authentication-manager>
+    -->
+<!--    <beans:bean id="authUserServiceImpl" class="com.agp.common.service.security.AuthUserServiceImpl">
+      <beans:property name="dataSource" ref="dataSource"></beans:property>
+      <beans:property name="rolePrefix" value=""></beans:property>
+      <beans:property name="usersByUsernameQuery" value="SELECT USER_CD, USER_ID, PWD, USER_NM, IF(A.AUTH_CD = 'MDEX_CTR',(SELECT COUNT(1) FROM TB_SYS_CTR_INFO X WHERE X.MNG_CTR_NO = A.MNG_CTR_NO) ,'1') AS SYS_CTR_YN
+        FROM TB_USER_INFO A WHERE USE_YN = '1' AND USER_ID = ?"></beans:property>
+      <beans:property name="authoritiesByUsernameQuery" value='SELECT AUTHORITY FROM TB_USER_AUTHORITIES WHERE USER_ID = ?'></beans:property> 
+      <beans:property name="authoritiesByUsernameQuery" value="SELECT AUTHORITY FROM TB_USER_INFO A, TB_AUTH_DTL_INFO B WHERE A.USE_YN = '1' AND A.AUTH_CD = B.AUTH_CD AND A.USER_CD = ?"></beans:property>
+   </beans:bean> -->
+   
+   
+     
+   <beans:bean id="ajaxExceptionTranslationFilter" class="kr.ror.common.service.security.AjaxExceptionTranslationFilter">
+      <beans:constructor-arg name="authenticationEntryPoint">
+         <beans:bean class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+            <beans:constructor-arg name="loginFormUrl" value="/ror/login"/>
+         </beans:bean>
+      </beans:constructor-arg>
+      <beans:property name="accessDeniedHandler" ref="accessDeniedHandlerImpl"/>
+   </beans:bean> 
+  
+   <beans:bean id="accessDeniedHandlerImpl" class="kr.ror.common.service.security.AccessDeniedHandlerImpl">
+      <beans:property name="accessDeniedPage" value="/ror/login"/>
+   </beans:bean> 
+
+   
+   
+ <!-- 고객 로그인 시큐리티 custLoginSecurity -->
+   <http auto-config="true" use-expressions="true" disable-url-rewriting="true" pattern="/**" authentication-manager-ref="rorCust" >
+      
+        <intercept-url pattern="/ror/login" access="permitAll" />
+        <intercept-url pattern="/main" access="permitAll" /> 
+        <intercept-url pattern="/recipe/recipeSearch**" access="permitAll"/>
+        <intercept-url pattern="/board/freeBoard**" access="permitAll"/>
+        
+        <intercept-url pattern="/ror/**" access="authenticated" />
+      
+      <headers>
+           <frame-options policy="SAMEORIGIN"/>
+      </headers>
+      <csrf disabled="true"/>
+      <form-login 
+         login-page="/ror/login"
+         authentication-failure-handler-ref="loginFailureHandler"
+         authentication-success-handler-ref ="loginSuccessHandler"
+         always-use-default-target="true"
+         login-processing-url="/ror/custLoginProcess"
+         username-parameter="id"
+         password-parameter="pw"
+         default-target-url="/main" />
+      <logout 
+         logout-url="/ror/logout"
+         invalidate-session="true" 
+         success-handler-ref="customLogoutSuccessHandler2"
+         delete-cookies="JSESSIONID"
+         />
+         
+         
+         
+      <session-management invalid-session-url="/ror/logout"/>
+    <custom-filter after="EXCEPTION_TRANSLATION_FILTER" ref="ajaxExceptionTranslationFilter"/> 
+   </http>
+   
+    <authentication-manager id="rorCust">      
+      <authentication-provider user-service-ref="authCustServiceImpl">
+         <password-encoder ref="passwordEncoder"/>
+      </authentication-provider>
+   </authentication-manager>
+   
+    
+   <beans:bean id="authCustServiceImpl" class="kr.ror.common.service.security.AuthCareUserServiceImpl">
+      <beans:property name="dataSource" ref="dataSource"></beans:property>
+      <beans:property name="rolePrefix" value=""></beans:property>
+      <beans:property name="usersByUsernameQuery" 
+      value="SELECT
+     A.MEM_NO
+     , A.CUST_ID AS id
+     , A.CUST_PW AS pw
+     , A.CUST_NM
+     , MNG_YN 
+          FROM new_schema.TB_MEM_INFO A
+          WHERE 1=1 
+          AND A.USE_YN = '1'
+          AND A.CUST_ID =  ?">
+      </beans:property>
+
+      <beans:property name="authoritiesByUsernameQuery" value="SELECT 
+      MNG_YN 
+      FROM 
+      TB_MEM_INFO A
+      WHERE
+      A.MEM_NO  = ?">
+      </beans:property>
+      <!-- <beans:property name="authoritiesByUsernameQuery" value="SELECT 
+      AUTHORITY 
+      FROM 
+      TB_USER_INFO A
+      , TB_AUTH_DTL_INFO B 
+      WHERE 
+      A.USE_YN = '1' 
+      AND 
+      A.AUTH_CD = B.AUTH_CD 
+      AND 
+      A.USER_CD = ?">
+      </beans:property> -->
+   </beans:bean>
+   
+   
+<!--    <beans:bean id="ajaxExceptionTranslationFilter3" class="com.agp.common.service.security.AjaxExceptionTranslationFilter3">
+      <beans:constructor-arg name="authenticationEntryPoint">
+         <beans:bean class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+            <beans:constructor-arg name="loginFormUrl" value="/mdex/custLogin"/>
+         </beans:bean>
+      </beans:constructor-arg>
+      <beans:property name="accessDeniedHandler" ref="accessDeniedHandlerImpl3"/>
+   </beans:bean> -->
+   
+<!--    <beans:bean id="accessDeniedHandlerImpl3" class="com.agp.common.service.security.AccessDeniedHandlerImpl3">
+      <beans:property name="accessDeniedPage" value="/mdex/custLogin"/>
+   </beans:bean>
+    -->
+   
+   <beans:bean id="loginFailureHandler" class="kr.ror.common.service.security.LoginFailureHandler">
+       <beans:property name="custId" value="id"/>
+       <beans:property name="custPw" value="pw"/>
+       <beans:property name="errorMsg" value="ERRORMSG"/>
+       <beans:property name="defaultFailureUrl" value="/ror/login"/>
+   </beans:bean>
+   
+   <beans:bean id="loginSuccessHandler" class="kr.ror.common.service.security.LoginSuccessHandler">
+       <beans:property name="defaultSuccessUrl" value="/main"/>
+   </beans:bean>
+   
+   <beans:bean id="customLogoutSuccessHandler2" class="kr.ror.common.service.security.CustomLogoutSuccessHandler">
+   
+   </beans:bean>
+   
+   
+   <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+   
+</beans:beans>
+

@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+/* 폼디자인 */
+.wrap_wrap {
+	margin: 0 auto;
+    width: 70%;
+    height: 75%;
+    position: inherit;
+    padding: 1%;
+}
+
+.form_wrap {
+	width: 30rem;
+/* 	height: 85%; */
+	margin: 0 auto;
+/* 	position: absolute; */
+}
+
+.form_wrap input {
+	border: none;
+	border-radius: inherit;
+	width: 100%;
+	height: 100%;
+	font-size: 1.3rem;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+}
+
+/* 모달 */
+.modal {
+	display: none;
+	position: absolute;
+    width: 400px;
+    height: 200px;
+	padding: 20px 71px;
+	background-color: #fefefe;
+	border: 1px solid #888;
+	border-radius: 3px;
+}
+
+.modal_body {
+    margin: 15% auto 0;
+}
+
+.modal_msg {
+	text-align: center;
+	font-size: 0.8rem;
+}
+
+.modal_close_btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.form_section {
+/* 	padding: 2.7%; */
+	height: 7%;
+/* 	width: 50%; */
+/* 	margin: auto; */
+	position: relative;
+	margin-bottom: 1%;
+}
+
+/* 라벨 */
+.form_label {
+	padding: 1%;
+	float: left;
+	width: 30%;
+	position: relative;
+}
+
+.label_coat {
+	margin-bottom: 9%;
+	font-weight: 500;
+	width: 100%;
+	position: static;
+}
+
+#error_msg1 {
+	font-size: 0.01rem;
+	width: 24%;
+	color: red;
+	float: right;
+	padding: 2.1% 0.1% 0 0;
+	display: none;
+}
+#error_msg2 {
+	font-size: 0.01rem;
+	width: 29%;
+	color: red;
+	float: right;
+	padding: 2.1% 0.1% 0 0;
+	display: none;
+}
+#regEx_msg1 {
+	font-size: 0.01rem;
+	width: 55%;
+	color: red;
+	float: right;
+	padding: 2.1% 0.1% 0 0;
+	display: none;
+}
+#valid_msg1{
+	font-size: 0.01rem;
+	width: 27%;
+	color: green;
+	float: right;
+	padding: 2.1% 0.1% 0 0;
+	display: none;
+}
+#valid_msg2{
+	font-size: 0.01rem;
+	width: 23%;
+	color: green;
+	float: right;
+	padding: 2.1% 0.1% 0 0;
+	display: none;
+}
+.input_coat {
+	width: 100%;
+	height: 3rem;
+	border-radius: 0.8rem;
+	border: 1px solid #ccc;
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 0 2.4%;
+}
+
+input[type=password] {
+   font-family:'Malgun gothic', dotum, sans-serif;
+}
+/* 버튼 */
+.btn {
+	white-space: nowrap;
+	background-color: #204A3F;
+	color: #f1ffee;
+	border: 1px solid;
+	border-radius: 0.7em;
+	font-size: 1.1rem;
+	font-weight: 500;
+	padding: 0.385em 0.715em;
+	margin-right: 0.6rem;
+}
+
+.btn>.ck_btn {
+	text-align: right;
+}
+
+.btn>.join_btn {
+	margin: 10px;
+	height: 60px;
+}
+
+.confirm_btn {
+/* 	display: none; */
+	position: fixed;
+    left: 39%;
+	bottom: 1.3rem;
+}
+
+.join_btn {
+	font-size: 1.7em;
+	width: 30rem;
+	padding: 2.9%;
+	border: none;
+}
+
+.join_coat {
+	margin-top: 2rem;
+}

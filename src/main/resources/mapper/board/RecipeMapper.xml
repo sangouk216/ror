@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="recipe.recipeBoard">
+
+	<!-- 레시피 전체조회 -->
+	<select id="recipeList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+			select 
+				REP_NO,
+				MEM_NO,
+				REP_NM,
+				REP_MAIN_C_CD,
+				MATE_NM,
+				MNG_NM,
+				MNG_REG,
+				REP_CTNT,
+				VIEW_CNT,
+				REP_IMG_PATH
+			from 
+				new_schema.tb_rep_pst_info 
+			where 
+			 REP_NO <![CDATA[>]]>0
+	</select>
+	
+	<!-- 검색 -->
+	<select id="getSearch" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			REP_NO,
+			MEM_NO,
+			REP_NM,
+			REP_MAIN_C_CD,
+			MATE_NM,
+			MNG_NM,
+			MNG_REG,
+			REP_CTNT,
+			VIEW_CNT,
+			REP_IMG_PATH
+		from
+			new_schema.tb_rep_pst_info
+		where 1 = 1
+			<if test="type=='T'.toString()">
+				AND REP_NM like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="type=='C'.toString()">
+				AND REP_CTNT like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="type=='W'.toString()">
+				AND MNG_NM like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="type=='M'.toString()">
+				AND MATE_NM like CONCAT('%',#{keyword},'%')
+			</if>
+		AND REP_NO<![CDATA[>]]>0
+	</select>
+		
+	<!-- 총게시글갯수 -->
+	<select id="getTotalCount" resultType="int">	
+		<![CDATA[	
+			select
+				count(*) 
+			from
+				new_schema.tb_rep_pst_info
+			where
+		]]>
+			REP_NO<![CDATA[>]]> 0
+	</select>
+	
+	
+	<!-- 레시피메인코드 값과 동일한 레시피 조회 -->
+	<select id="recipeCard" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+			select 
+				REP_NM
+				,REP_CTNT
+				,MNG_NM
+				,VIEW_CNT
+				,LIKE_CNT
+				,REP_IMG_PATH
+			from 
+				new_schema.tb_rep_pst_info
+			where 
+				REP_MAIN_C_CD = #{repMainCd}
+	</select>
+	
+	<!-- .nav-item 에 노출될 레시피메인코드 버튼 -->
+	<select id="recipeMainCd" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+			select 
+				REP_NO,
+				MEM_NO,
+				REP_NM,
+				REP_MAIN_C_CD,
+				MATE_NM,
+				MNG_NM,
+				MNG_REG,
+				REP_CTNT,
+				VIEW_CNT,
+				LIKE_CNT,
+				REP_IMG_PATH
+			from 
+				new_schema.tb_rep_pst_info 
+			where 
+				REP_NO <![CDATA[>]]>0
+			group by 
+				REP_MAIN_C_CD
+	</select>
+	
+	<!-- 금주의 레시피, 주간 뷰카운트(조회수) -->
+  <select id="viewCnt" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+      select 
+        REP_NO,
+        MEM_NO,
+        REP_NM,
+        REP_MAIN_C_CD,
+        MATE_NM,
+        MNG_NM,
+        MNG_REG,
+        REP_CTNT,
+        VIEW_CNT,
+        REP_IMG_PATH
+      from 
+        new_schema.tb_rep_pst_info
+      where 
+        1=1
+<!--         BETWEEN DATE_ADD(NOW(), INTERVAL -1 WEEK ) AND NOW() -->
+      ORDER BY VIEW_CNT DESC
+      LIMIT 4
+  </select>
+  
+  <!-- 추천 메뉴 ,주간 좋아요 수 -->
+    <select id="likeCnt" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+      select 
+        REP_NO,
+        MEM_NO,
+        REP_NM,
+        REP_MAIN_C_CD,
+        MATE_NM,
+        MNG_NM,
+        MNG_REG,
+        REP_CTNT,
+        LIKE_CNT,
+        REP_IMG_PATH
+      from 
+        new_schema.tb_rep_pst_info
+      where 
+        1=1
+<!--         BETWEEN DATE_ADD(NOW(), INTERVAL -1 WEEK ) AND NOW() -->
+      AND VIEW_CNT ORDER BY RAND() LIMIT 1
+  </select>
+	
+	<!-- 조회 -->
+	<select id="readRecipe" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT
+			REP_NO,
+			MEM_NO,
+			REP_NM,
+			REP_MAIN_C_CD,
+			MATE_NM,
+			MNG_NM,
+			MNG_REG,
+			MOD_NM,
+			MOD_REG,
+			VIEW_CNT,
+			LIKE_CNT,
+			REP_CTNT,
+			REP_IMG_PATH
+		FROM
+			tb_rep_pst_info
+		WHERE
+			REP_NO = #{repNo}
+	</select>
+	
+	<!-- 등록 -->
+	<insert id="insertRecipe" parameterType="java.util.HashMap">
+		INSERT INTO tb_rep_pst_info (
+			  MEM_NO
+			,  REP_NM
+			,  REP_MAIN_C_CD
+			,  MATE_NM
+			,  MNG_NM
+			,  MNG_REG
+			,  REP_CTNT
+			)
+		VALUES (
+			#{memNo}
+			,#{repName}
+			,#{repMainCd}
+			,#{mateNm}
+			,#{writer}
+			,NOW()
+			,#{repCtnt}
+			)
+	</insert>
+	
+ <!-- 	<insert id="insertSelectKey" parameterType="java.util.HashMap">
+		<selectKey resultType="long" keyProperty="repNo" order="BEFORE">
+			select MAX(repNo) + 1 from tb_rep_pst_info
+		</selectKey>
+			insert into tb_rep_pst_info (
+					REP_NO
+				, MEM_NO
+				, REP_NM
+				, REP_MAIN_C_CD
+				, REP_MID_C_CD
+				, MNG_NM
+				, MNG_REG
+				, REP_CTNT
+			)
+			values (
+				#{repNo}
+				,#{memNo}
+				,#{repName}
+				,#{repMainCd}
+				,#{repMidCd}
+				,#{writer}
+				,NOW()
+				,#{repCtnt}
+				)
+	</insert>  -->
+	
+	<!-- 수정 -->
+	<update id="updateRecipe" parameterType="java.util.HashMap">
+		UPDATE 
+			tb_rep_pst_info
+		SET
+			MEM_NO = #{memNo},
+			REP_NM = #{repName},
+			REP_MAIN_C_CD = #{repMainCd},
+			MATE_NM = #{repMidCd},
+			MOD_NM = #{writer},
+			MOD_REG = NOW(),
+			VIEW_CNT = #{viewCnt},
+			LIKE_CNT = #{likeCnt},
+			REP_CTNT = #{repCtnt}
+		WHERE 1=1
+		AND
+			REP_NO = #{repNo}
+	</update>
+	
+	<!-- 조회수 업데이트 -->
+	<update id="updateRecipeViewCnt" parameterType="java.util.HashMap">
+		UPDATE 
+			tb_rep_pst_info
+		SET
+			VIEW_CNT = VIEW_CNT+1
+		WHERE
+			REP_NO = #{repNo}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="deleteRecipe" parameterType="int">
+		DELETE FROM 
+		new_schema.tb_rep_pst_info 
+		WHERE 1=1
+		AND
+		REP_NO = #{repNo}
+	</delete>
+</mapper>

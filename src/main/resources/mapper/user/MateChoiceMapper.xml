@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="material.mateChoice">
+
+<select id="mateSelectList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    SELECT
+      MAT_NO
+      , MAIN_C_CD
+      , MID_C_CD
+      , MAT_NM
+      , USE_YN
+    FROM 
+      new_schema.TB_MAT_INFO 
+    WHERE 1=1
+    AND 
+      USE_YN = '1'
+    AND 
+      MAT_NO ORDER BY RAND() LIMIT 4
+  </select>
+  
+<select id="mcSelectInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    SELECT
+      MAT_NO
+      , MAIN_C_CD
+      , MID_C_CD
+      , MAT_NM
+      , USE_YN
+      
+    FROM new_schema.TB_MAT_INFO 
+    WHERE 1=1
+    AND USE_YN = '1' LIMIT 1
+  </select>
+  
+   <select id="footerMateList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+     SELECT
+      MAT_NO
+      ,MAIN_C_CD
+      ,MAT_NM
+      FROM 
+      new_schema.TB_MAT_INFO
+  </select>
+ 
+
+  <select id="mateChoiceSelectList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+    SELECT
+      MAT_NO
+      , MAT_NM
+      , MAIN_C_CD
+      , MID_C_CD
+    FROM new_schema.TB_MAT_INFO 
+    WHERE 1=1
+    AND USE_YN = '1'
+    GROUP BY MAIN_C_CD
+  </select>
+  <!-- 대분류 카테고리 보이기. -->
+  
+  <select id="selectMateMidInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+      SELECT
+	      MAT_NO
+	      ,MID_C_CD
+	      ,MAT_NM
+	    FROM new_schema.TB_MAT_INFO 
+	    WHERE 1=1
+	    AND USE_YN = '1'
+		AND MAIN_C_CD = #{mateCCd}
+		GROUP BY MID_C_CD
+  </select>
+  <!-- 중분류 카테고리 보이기. -->
+  
+  <select id="selectMateNmInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+      SELECT
+	      MAT_NO
+	      ,MAT_NM
+	    FROM new_schema.TB_MAT_INFO 
+	    WHERE 1=1
+	    AND USE_YN = '1'
+		AND MID_C_CD = #{midCCd}
+  </select>
+  <!-- 소분류 카테고리 보이기. -->
+  
+  
+  
+  
+
+</mapper>

@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+/* body {
+	font-size: 10px;
+} */
+
+.all_wrap {
+	margin:2% auto 0;
+	width: 90%;
+	height: 75%;
+	padding: 1%;
+}
+
+.myForm_wrap {
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	position: relative;
+}
+
+.myForm {
+	width: 100%;
+	position: relative;
+}
+
+.photo_coat {
+	width: 150px;
+	height: 150px;
+	margin: auto;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.photo {
+	width: 150px;
+	height: 150px;
+	border-radius: 1.4rem;
+}
+
+.photo_msg{
+    color: gray;
+    text-align: center;	
+    line-height: 25px;
+}
+
+.coat_section {
+	width: 30rem;
+	margin: auto;
+	margin-top: 2%;
+	height: 12%;
+	padding-bottom: 1%;
+}
+
+.label_coat {
+	font-size: 0.7rem;
+	margin-bottom: 1%;
+	font-weight: 500;
+	width: 100%;
+	position: relative;
+	padding: 1%;
+	display: -webkit-inline-box;
+}
+
+.err_label {
+	float: left;
+	width: 60%;
+}
+
+#error_msg {
+    font-size: 0.8rem;
+    color: red;
+    margin-left: 1.2rem;
+    padding: 0.5% 0% 0 0;
+}
+
+.input_coat {
+    height: 3rem;
+    border-radius: 0.8rem;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 2.4%;
+}
+
+.input_coat input {
+	font-size: 1.3rem;
+	border: none;
+	width: -webkit-fill-available;	
+}
+input[type=password] {
+	font-family:'Malgun gothic', dotum, sans-serif;
+}
+
+.button_coat {
+	width: 30rem;
+    margin: 4% auto 0;
+}
+
+.button_coat button {
+    white-space: nowrap;
+    background-color: #204A3F;
+    color: #fff;
+    border-radius: 0.8em;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 1rem;
+    border: none;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}

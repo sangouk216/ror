@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin.popup">
+
+	<!-- 한개의 값만 가져오기 -->
+  <select id="selectInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+      SELECT 
+				NTC_NO
+				,NTC_TITLE
+				,NTC_CTNT
+				,NTC_ST_REG
+				,NTC_ED_REG
+				,MNG_REG
+				,MNG_NM
+				,MOD_REG
+				,MOD_NM
+				,USE_YN
+			
+			FROM new_schema.TB_NTC
+			WHERE 1=1
+			 ORDER BY NTC_NO DESC
+			 LIMIT 1
+  </select>
+  
+  <!-- 공지사항 글쓰기 -->
+    <insert id="popupInsert" parameterType="java.util.HashMap">
+    insert into 
+    new_schema.TB_NTC 
+    (
+        NTC_TITLE
+        ,NTC_CTNT
+        ,MNG_NM
+        ,MOD_REG
+        ,MOD_NM
+    )values (
+    #{ntc_title}
+    ,#{ntc_ctnt}
+    ,'SYSTEM'
+    ,NOW()
+    ,'SYSTEM'
+    )
+  </insert>
+  
+  <!-- 공지사항 수정 -->
+    <update id="popupUpdate" parameterType="java.util.HashMap">
+    update TB_NTC
+    SET
+	    NTC_TITLE = #{ntc_title},
+	    NTC_CTNT = #{ntc_ctnt},
+	    NTC_ST_REG = #{ntc_st_reg},
+	    NTC_ED_REG = #{ntc_ed_reg},
+	    MNG_REG = #{mng_reg},
+	    MNG_NM = #{mng_nm},
+	    MOD_REG = #{mod_reg},
+	    MOD_NM = #{mod_nm},
+	    USE_YN = #{use_yn}
+    WHERE NTC_NO = #{ntc_no}
+  </update>
+  
+  <!-- 리스트 형식으로 여러개의 값 가져오기 -->
+  <select id="popupSelectList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+      SELECT 
+        NTC_NO
+        ,NTC_TITLE
+        ,NTC_CTNT
+        ,NTC_ST_REG
+        ,NTC_ED_REG
+        ,MNG_REG
+        ,USE_YN
+      
+      FROM new_schema.TB_NTC
+      WHERE 1=1 
+       AND USE_YN = '1' 
+  </select>
+ 
+</mapper>

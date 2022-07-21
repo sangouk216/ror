@@ -1,0 +1,727 @@
+@charset "UTF-8";
+
+.myMatmanage {
+	width: 90%;
+    height: 40rem;
+    transform: translate(5%, 25%);
+    color: #4c6048;
+    margin-top: -5%;
+}
+
+h2 {
+	font-size: 3rem;
+    height: 10%;
+    text-align: center;
+    margin-top: 0.5%;
+}
+
+.myMat-search {
+    display: block;
+    width: 100%;
+    height: 6%;
+    float: right;
+    margin-top: 1%;
+}
+
+.myMat-search input {
+    width: 20%;
+    height: 100%;
+    float: left;
+    font-size: 2em;
+    border: 1px solid #cbe7c8;
+    color: #4c6048;
+    margin-left: 72%;
+}
+
+.myMat-search button {
+    width: 7%;
+    height: 100%;
+    float: right;
+    font-size: 1.8rem;
+    display: inline;
+    border: 1px solid #cbe7c8;
+    background: none;
+    color: #4c6048;
+}
+
+.myMat-search button:hover {
+	background-color:#f1ffee;
+	color:#4c6048;
+	border: 1px solid #ecf5c9;
+}
+
+
+/* @media screen and (max-width: 1400px) {
+	.myMat-search input {
+		margin-right:3%:
+	}
+	
+	.myMat-search button {
+		font-size:2rem;
+	}
+}
+
+@media screen and (max-width: 1260px) {
+	.myMat-search input {
+		margin-right:3%:
+	}
+	
+	.myMat-search button {
+		font-size:1.5rem;
+		margin-top:5%;
+	}
+}
+
+@media screen and (max-width: 950px) {
+	.myMat-search {
+		width:30%;
+		margin-top:-2%;
+	}
+	
+	.myMat-search input {
+		margin-right:3%:
+	}
+	
+	.myMat-search button {
+		font-size:1.8rem;
+		margin-top:3%;
+	}
+} */
+
+
+.myMat-main {
+    border: 1px solid #cbe7c8;
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    position: absolute;
+}
+
+.myMat-category {
+	height: 30%;
+}
+
+.myMat-category > .myMat-mainCategoryDiv {
+    font-size: 2rem;
+    font-weight: 1000;
+    margin-top: 1%;
+    width: 100%;
+    padding-left: 2%;
+    height: 23%;
+    border-bottom: 1px solid #cbe7c8;
+    z-index: 1;
+    position: relative;
+    display: flex;
+}
+
+div.myMat-mainCategory {
+    position: fixed;
+    left: 9rem;
+    width: 90%;
+    z-index: 2;
+    margin: -1% 0% 0% 0%;
+}
+
+.myMat-mainCategory ul {
+	width:100%;
+	height: 100%;
+	margin-bottom: 0.3%;
+    display:inline-block;
+    list-style-type:none;
+    float:left;
+    z-index: 3;
+}
+
+.myMat-mainCategory ul li {
+    list-style-type:none;
+    float:left;
+    margin: 1.1% 5% 0% 1%;
+    z-index: 4;
+}
+
+div.myMat-mainCategory ul li button:hover {
+    color:#cbe7c8;
+}
+
+.myMat-mainCategory ul li button {
+    font-size: 1.7rem;
+    color: #4c6048;
+    border: none;
+    background: inherit;
+}
+
+.myMat-category > .myMat-middleClassDiv {
+    font-size: 2rem;
+    font-weight: 1000;
+    margin-top: 1%;
+    width: 100%;
+    padding-left: 2%;
+    height: 23%;
+    border-bottom: 1px solid #cbe7c8;
+    z-index: 1;
+    position: relative;
+    display: flex;
+}
+
+div.myMat-middleClass {
+	position: fixed;
+    left: 9rem;
+    width: 88.8%;
+    z-index: 2;
+    margin: -1% 0% 0% 0%;
+    height: 3.6rem;
+}
+
+.myMat-middleClass ul {
+	width:100%;
+	height: 100%;
+	margin-bottom: 0.3%;
+    display:inline-block;
+    list-style-type:none;
+    float:left;
+    z-index: 3;
+    overflow: overlay;
+}
+
+.myMat-middleClass ul li {
+    list-style-type:none;
+    float:left;
+    margin: 1.1% 5% 0% 1%;
+    z-index: 4;
+}
+
+.myMat-middleClass ul li button {
+    font-size: 1.7rem;
+    color: #4c6048;
+    border: none;
+    background: inherit;
+}
+
+div.myMat-middleClass ul li button:hover {
+    color:#cbe7c8;
+}
+
+.myMat-category > .myMat-subCategoryDiv {
+    font-size: 2rem;
+    font-weight: 1000;
+    margin-top: 1%;
+    width: 100%;
+    padding-left: 2%;
+    height: 23%;
+    border-bottom: 1px solid #cbe7c8;
+    z-index: 1;
+    position: relative;
+    display: flex;
+}
+
+div.myMat-subCategory {
+	position: fixed;
+    left: 9rem;
+    width: 88.8%;
+    z-index: 2;
+    margin: -1% 0% 0% 0%;
+    height: 3.6rem;
+}
+
+.myMat-subCategory ul {
+	width:100%;
+	height: 100%;
+	margin-bottom: 0.3%;
+    display:inline-block;
+    list-style-type:none;
+    float:left;
+    z-index: 3;
+    overflow:overlay;
+}
+
+.myMat-subCategory ul li {
+    list-style-type:none;
+    float:left;
+    margin: 1.1% 5% 0% 1%;
+    z-index: 4;
+}
+
+.myMat-subCategory ul li button {
+    font-size: 1.7rem;
+    color: #4c6048;
+    border: none;
+    background: inherit;
+}
+
+div.myMat-subCategory ul li button:hover {
+    color:#cbe7c8;
+}
+
+ul li button.chooseColor {
+	color:#cbe7c8;
+}
+
+
+/* 대,중,소분류 끝. 재료 담기 시작. */
+
+.myMat-putIn {
+    width: 96%;
+    height:26rem;
+    margin: 1% 2%;
+}
+
+.myMat-putInAll {
+    width: 50%;
+    height: 100%;
+    float:left;
+}
+
+.myMat-putInAllNM {
+	border: 1px solid #cbe7c8;
+    width: 100%;
+    height: 80%;
+}
+
+.myMat-putInName {
+    border-bottom: 1px solid #cbe7c8;
+    width: 100%;
+    height: 20%;
+}
+
+.myMat-putInName h3 {
+	float:left;
+	margin: 2.5%;
+	font-size: 2rem;
+}
+
+.myMat-putInName button {
+    float: right;
+    margin: 2%;
+    font-size: 1.6rem;
+    color: #4c6048;
+    border: none;
+    background: #ffffff;
+    font-weight: 500;
+    width: 30%;
+    height: 65%;
+}
+
+/* 전체 선택해제 호버시 */
+
+.myMat-putInName button:hover {
+	color:#cbe7c8;
+}
+
+.myMat-putInMat {
+    float: left;
+    width: 100%;
+    height: 78%;
+    overflow: overlay;
+/*     overflow: x-hidden; */
+}
+
+.myMat-putInMat ul {
+    width: 100%;
+    height: 100%;
+}
+
+/* 버튼 추가. */
+.myMat-putInMat ul li {
+	float: left;
+    margin: 1%;
+    padding: 0% 0% 0% 1%;
+    width: max-content;
+}
+
+
+/* .myMat-putInMat ul > li:hover {
+	float: left;
+    margin: 1.5% 3% 1.5% 1.5%;
+    padding:0% 2.5% 0% 1%;
+    border: 1px solid #4c6048; 바뀌기 전.
+    border: 1px solid #f1ffee;
+    border-radius: 5px 25px 25px 5px;
+    background-color: #f1ffee; *//* 바뀌기 전.
+    background-color: #4c6048;
+    color: #4c6048; *//* 바뀌기 전.
+    color: #f1ffee;
+} */
+
+
+/* p 추가. */
+.myMat-putInMat ul li button {
+	width:max-content;
+	border-radius:3px;
+	font-size: 1.8rem;
+    color: #4c6048;
+    float: left;
+    background-color: #f1ffee;
+    border: 1px solid #4c6048;
+}
+
+.myMat-putInMat ul li button p {
+    font-size: 2rem;
+    color: #4c6048;
+    background-color: #f1ffee;
+    border: none;
+    float: right;
+    height: 2.3rem;
+    width: 1.9rem;
+    border-radius: inherit;
+}
+
+/* .myMat-putInMat ul li button:hover {
+	width:max-content;
+	border: none;
+    background: none;
+} */
+
+/* .myMat-putInMat > ul > li > button:hover{
+	color:#f1ffee;
+	border:1px solid #f1ffee;
+	background-color:#4c6048;
+} */
+
+.myMat-putInMat ul li button p:hover  {
+	color: #f1ffee;
+    border: none;
+    background-color: #4c6048;
+}
+
+
+
+
+.myMat-chooseRef {
+	width:100%;
+	height:20%;
+}
+
+.myMat-chooseRef button {
+	float: left;
+    margin: 2% 5%;
+    font-size: 2rem;
+    color: #4c6048;
+    border: 1px solid #cbe7c8;
+    background: #ffffff;
+    font-weight: 500;
+    width: 39%;
+    height: 70%;
+}
+
+.myMat-chooseRef button:hover {
+    color: #cbe7c8;
+    border: 1px solid #4c6048;
+    background: #4c6048;
+}
+
+
+
+/* 냉장,냉동 보관실 시작. */
+
+.myMat-putInRef {
+    width: 48%;
+    height: 98%;
+	float: right;
+}
+
+ul li.choose {
+	float: left;
+    margin: 1%;
+    padding: 0% 0% 0% 1%;
+    width: max-content;
+}
+
+ul li button.choose {
+	width:max-content;
+	border-radius:3px;
+	font-size: 1.8rem;
+    color: #f1ffee;
+    float: left;
+    background-color: #4c6048;
+    border: 1px solid #cbe7c8;
+}
+
+ul li button p.choose {
+	font-size: 2rem;
+    color: #f1ffee;
+    background-color: #4c6048;
+    border: none;
+    float: right;
+    height: 2.3rem;
+    width: 1.9rem;
+    border-radius: inherit;
+}
+
+ul li button.notChoose {
+	border: 1px solid #4c6048;
+	background-color: #f1ffee;
+	color: #4c6048;
+}
+
+
+ul li button p.notChoose {
+	border: none;
+	background-color: #f1ffee;
+	color: #4c6048;
+}
+
+.myMat-coldRoom {
+	border: 1px solid #cbe7c8;
+	width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.myMat-coldRoom h4 {
+	border-bottom: 1px solid #cbe7c8;
+    width: 100%;
+    height: 16%;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 4.5%;
+}
+
+.myMat-coldRoom ul {
+    width: 100%;
+    height: 84%;
+    overflow: overlay;
+}
+
+.myMat-coldRoom ul li {
+	float: left;
+    margin: 5% 1.5% 1.5% 4%;
+    padding: 0% 0% 0% 1%;
+    width: max-content;
+}
+
+.myMat-coldRoom ul li button {
+	width:max-content;
+	border-radius:3px;
+	font-size: 1.8rem;
+    color: #4c6048;
+    float: left;
+    background-color: #f1ffee;
+    border: 1px solid #4c6048;
+}
+
+.myMat-coldRoom ul li button p {
+    font-size: 2rem;
+    color: #4c6048;
+    background-color: #f1ffee;
+    border: none;
+    float: right;
+    height: 2.3rem;
+    width: 1.9rem;
+    border-radius: inherit;
+}
+
+/* .myMat-coldRoom ul li button:hover {
+	width:max-content;
+	border: none;
+    background: none;
+} */
+
+.myMat-coldRoom ul li button.choose p:hover  {
+	color: #f1ffee;
+    border: none;
+    background-color: #4c6048;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.myMat-freezer {
+	border: 1px solid #cbe7c8;
+	width: 48%;
+    height: 100%;
+    float: right;
+}
+
+.myMat-freezer h4 {
+	border-bottom: 1px solid #cbe7c8;
+    width: 100%;
+    height: 16%;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 4.5%;
+}
+
+.myMat-freezer ul {
+    width: 100%;
+    height: 84%;
+    overflow: overlay;
+}
+
+
+.myMat-freezer ul li {
+	float: left;
+    margin: 5% 1.5% 1.5% 4%;
+    padding: 0% 0% 0% 1%;
+    width: max-content;
+}
+
+.myMat-freezer ul li button {
+	width:max-content;
+	border-radius:3px;
+	font-size: 1.8rem;
+    color: #4c6048;
+    float: left;
+    background-color: #f1ffee;
+    border: 1px solid #4c6048;
+}
+
+.myMat-freezer ul li button p {
+    font-size: 2rem;
+    color: #4c6048;
+    background-color: #f1ffee;
+    border: none;
+    float: right;
+    height: 2.3rem;
+    width: 1.9rem;
+    border-radius: inherit;
+}
+
+/* .myMat-freezer ul li button:hover {
+	width:max-content;
+	border: none;
+    background: none;
+} */
+
+.myMat-freezer ul li button p:hover  {
+	color: #f1ffee;
+    border: none;
+    background-color: #4c6048;
+}
+
+
+
+
+
+
+
+
+.myMat-searchPopup {
+	width: 50%;
+    height: 50%;
+    border: 1px solid #4c6048;
+    z-index: 100;
+    position: absolute;
+    left: 25%;
+    background-color: #f9fdf8;
+    border-radius: 3px;
+}
+
+.myMat-searchPopup input {
+    font-size: 1.5rem;
+    margin: 5% 2% 5% 25%;
+    border-radius: 3px;
+    border: 1px solid #4c6048;
+    color: #4c6048;
+	padding:0.5%;
+}
+
+.myMat-searchPopup button[type="submit"] {
+	background-color: #f1ffee;
+    color: #4c6048;
+    border: 1px solid #4c6048;
+    width: 9%;
+    height: 10%;
+	position:absolute;
+	top:10.5%;
+	border-radius: 3px;
+    font-size: 1.4rem;
+}
+
+.myMat-searchPopup p {
+    position: absolute;
+    left: 7%;
+    font-size: 1.5rem;
+}
+
+.myMat-searchPopup .myMat-searchResult {
+    position: absolute;
+    left: 7%;
+    top: 45%;
+    font-size: 1.2rem;
+    width: 85%;
+    height: 40%;
+    border: none;
+}
+
+.myMat-searchPopup .myMat-searchResult .finalResult {
+	font-size: 1.5rem;
+	font-weight: 1000;
+    color: #4c6048;
+    border: none;
+    background: none;
+}
+
+.myMat-searchPopup .myMat-searchResult .finalResult:hover {
+	color: #f1ffee;
+	background-color:#4c6048;
+}
+
+.myMat-searchPopup .myMat-closeBtn {
+    position: absolute;
+    top: 87%;
+    right: 3%;
+    overflow: overlay;
+}
+
+.myMat-searchPopup .myMat-closeBtn button {
+	cursor: pointer;
+    font-size: 1.4rem;
+    border: none;
+    background: none;
+    color: #4c6048;
+    font-weight: 900;
+}
+
+.myMat-searchPopup .myMat-closeBtn button:hover {
+	color: #f1ffee;
+	background-color:#4c6048;
+}
+
+.myMat-matCloseBtn {
+    width: 10%;
+    height: 10%;
+    margin: 29rem auto;
+}
+
+.myMat-matCloseBtn button {
+	font-size: 2rem;
+    width: 100%;
+    height: 70%;
+    border: 1px solid #4c6048;
+    background: #f1ffee;
+    color: #4c6048;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+/* @media screen and (max-width: 1140px) {
+	.myMat-chooseRef button {
+		font-size:2rem;
+	}
+	
+@media screen and (max-width: 1060px) {
+	.myMat-putInName button {
+		font-size:1.5rem;
+	}
+	
+@media screen and (max-width: 810px) {
+	.myMat-putInName button {
+		font-size:1rem;
+	}
+} */

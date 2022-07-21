@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<property name="poolName" value="#{config['db.poolName']}"/>
+		<property name="driverClassName" value="#{config['db.driverClassName']}"/>
+		<property name="jdbcUrl" value="#{config['db.jdbcUrl']}"/>
+		<property name="username" value="#{config['db.username']}"/>
+		<property name="password" value="#{config['db.password']}"/>
+		<property name="minimumIdle" value="#{config['db.minimumIdle']}"/>
+		<property name="maximumPoolSize" value="#{config['db.maximumPoolSize']}"/>
+		<property name="connectionTimeout" value="60000 "/> <!-- 60secs -->
+		<property name="dataSourceProperties">
+			<props>
+				<prop key="prepStmtCacheSize">250</prop>
+				<prop key="prepStmtCacheSqlLimit">2048</prop>
+				<prop key="cachePrepStmts">true</prop>
+				<prop key="useServerPrepStmts">true</prop>
+			</props>
+		</property>
+	</bean>
+	    
+</beans>

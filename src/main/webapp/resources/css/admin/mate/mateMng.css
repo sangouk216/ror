@@ -1,0 +1,407 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Nanum';
+	src: url('../resources/fonts/NanumSquareR.woff') format('woff');
+}
+
+.choosemeterial, .delete_ask, .pon {
+	font-size: 15px;
+	text-align: center;
+}
+
+.materialManager {
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	
+}
+
+button {
+	cursor: pointer;
+}
+
+a {
+	cursor: pointer;
+}
+
+.ch1 {
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+	margin-top: 1rem;
+}
+
+.ch2 {
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+	margin-top: 1rem;
+}
+
+
+
+.but_plus {
+	border: 1.5px solid #4c6048;
+	background-color: #f1ffee;
+	color: #4c6028;
+	font-size: large;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5em;
+	border-radius: 0.8em;
+	display: flex;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: 400;
+}
+
+.but_change {
+	border: 1.5px solid #4c6048;
+	background-color: #f1ffee;
+	color: #4c6028;
+	font-size: large;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5em;
+	border-radius: 0.8em;
+	display: flex;
+	width: 47%;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: 400;
+}
+
+.but_delete {
+	border: 1.5px solid #4c6048;
+	background-color: #f1ffee;
+	color: #4c6028;
+	font-size: large;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5em;
+	border-radius: 0.8em;
+	display: flex;
+	width: 47%;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: 400;
+}
+
+.but_change:disabled {
+	border: 1.5px solid #4c6048;
+	background-color: #dfdddd;
+	color: #4c6028;
+	font-size: large;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5em;
+	border-radius: 0.8em;
+	display: flex;
+	width: 47%;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: 400;
+}
+
+.but_delete:disabled {
+	border: 1.5px solid #4c6048;
+	background-color: #dfdddd;
+	color: #4c6028;
+	font-size: large;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5em;
+	border-radius: 0.8em;
+	display: flex;
+	width: 47%;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: 400;
+} 
+
+.delete_ask {
+	margin-top: 2.5rem;
+}
+
+.yes {
+	border: 1.5px solid #f0f3f5;
+	background-color: #cbe7c8;
+	width:2rem;
+} 
+
+.no {
+	border: 1.5px solid #f0f3f5;
+	background-color: #cbe7c8;
+	width:3.5rem;
+}
+
+.yesno {
+	margin-top: 1rem;
+    text-align: center;
+}
+
+
+#choosetext{
+	font-size: 15px;
+	text-align: center;
+}
+
+.mychoose {
+	border: 1.5px solid black;
+	border-radius: 0.8rem;
+	margin-top: 1rem;
+	width: 100%;
+}
+
+.choosemn{
+	width: 100%;
+	margin-bottom: 1rem;
+	    text-align: center;
+}
+ 
+.changemn, .choosemeterial, .changemn {
+	font-size: 1rem;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    /* display: flex; */
+    width: 18rem;
+    text-align: center;
+    /* vertical-align: middle; */
+    /* font-weight: 400; */
+    margin-left: -1rem;
+    margin-top:2rem;
+}
+
+/* 재료 전체보기 버튼 */
+#mn-read1, #mn-read2, #mn-read3, #mn-read4 {
+	border: 1.5px solid #4c6048;
+	font-size: 17px;
+	float: right;
+	background-color: #f1ffee;
+	color: #4c6028;
+	border-radius: 0.8rem;
+}
+
+.manager-material {
+	color: black;
+	background-color: white;
+	font-size: 1rem;
+	align-items: center;
+	justify-content: center;
+	padding: 0.7em;
+	border-radius: 0.8rem;
+	width: 30%;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: 600;
+	margin: 5px 3px 0px 4px;
+}
+
+.mn-li {
+	font-size: 1.2em;
+	margin-bottom: 0.5rem;
+	box-sizing: border-box;
+	margin-top: 0.5rem;
+}
+
+.manager-terms1, .manager-terms2, .manager-terms3, .manager-terms4 {
+	display: none;
+	width: 100%;
+	margin-top: 1rem;
+}
+
+
+.plus_group_label{
+    border: 1.5px solid black;
+    background-color: white;
+    color: black;
+    width: 100%;
+    padding: 3%;
+    font-size: 15px;
+}
+
+
+/* 마우스 오버시 색 변함. */
+.manager-choice button:hover {
+	color: #f1ffee;
+	background-color: #4c6048;
+}
+
+.button-active {
+	border: 1.5px solid #f1ffee;
+	background-color: #4c6048;
+	}
+
+.button-fontcolor {
+	color: #f1ffee;
+}
+/* 마우스 오버 시 색변함 끝 */
+
+#change_modal , #plus_modal, #delete_modal, #changeover_modal {
+	display: none;
+	width: 440px;
+	padding: 20px 60px;
+	background-color: #fefefe;
+	border: 1px solid #888;
+	border-radius: 3px;
+}
+
+#changeone, #deletethree{
+	display: none;
+	width: 300px;
+	padding: 20px 60px;
+	background-color: #fefefe;
+	border: 1px solid #888;
+	border-radius: 3px;
+}
+
+#change_modal .modal_close_btn, #plus_modal .modal_close_btn,
+	#delete_modal .modal_close_btn, #changeover_modal .modal_close_btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.choosemeterial {
+	
+    margin-top: 2rem;
+    width: 91;
+    border: 1.5px solid black;
+    border-radius: 0.8rem;
+    margin-top: 2.5rem;
+    width: 18rem;
+    margin-bottom: 1rem;
+}
+
+.plusmeterial {
+	margin-top: 1rem;
+}
+
+.plusplusmn {
+	margin-top: 1rem;
+    font-size: 1rem;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 0.4rem;
+    border-radius: 0.8rem;
+    /* display: flex; */
+    width: 20rem;
+    text-align: center;
+    /* vertical-align: middle; */
+    /* font-weight: 400; */
+    /* align-items: center; */
+    /* margin-left: -1rem; */
+}
+
+
+#changematerial {
+	margin-top: 2rem;
+    font-size: 1rem;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 0.4rem;
+    border-radius: 0.8rem;
+    /* display: flex; */
+    width: 20rem;
+    text-align: center;
+    /* vertical-align: middle; */
+    /* font-weight: 400; */
+    /* align-items: center; */
+    /* margin-left: -1rem; */
+    float:right;
+}
+
+#change {
+	border: 1.5px solid #4c6048;
+    background-color: #f1ffee;
+    border-radius: 0.8rem;
+    font-size: medium;
+    color: #4c6048;
+    margin-top: 1rem;
+    padding: 0.5rem 2rem;
+    width: 20rem;
+}
+
+#plus {
+	 border: 1.5px solid #4c6048;
+    background-color: #f1ffee;    
+    border-radius: 0.8rem;
+    font-size: medium;
+    color: #4c6048;
+    margin-top: 1rem;
+    padding: 0.5rem 2rem;
+   width: 20rem;
+}
+
+#delete {
+	border: 1.5px solid #f0f3f5;
+	background-color: #ffda33;
+	border-radius: 0.8rem;
+	font-size: medium;
+	color: white;
+	margin-top: 1rem;
+	padding: 0.5rem 2rem;
+	margin-left: 8rem;
+}
+
+#plus_material {
+	border: 1.5px solid #4c6048;
+    background-color: #f1ffee;
+    border-radius: 0.8rem;
+    font-size: medium;
+    color: #4c6048;
+    margin-top: 2.5rem;
+    padding: 0.5rem 2rem;
+    width: 20rem;
+
+}
+
+.manager-material button-active{
+	width: 100%;
+}
+
+.modalchange-text{
+	margin-top:2rem;
+}
+
+.change-text{
+	text-align: center;
+	margin-top: 2.5rem;
+}
+
+.plus_group
+{
+	display:none;
+    margin-top: 1%;
+    overflow: overlay;
+    height: 150px;
+
+}
+
+/* 추가모달 창안에서 '추가할 모달창'클릭시 나타날 스크롤 바 시작 */
+
+.plus_group::-webkit-scrollbar{
+	width:10px; 
+	background-color:black;
+}
+
+ .plus_group::-webkit-scrollbar-thumb{
+	background-color: #2f3542;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+
+}
+
+.plus_group::-webkit-scrollbar-track {
+   background-color: grey;
+   border-radius: 10px;
+   box-shadow: inset 0px 0px 5px white;
+} 
+/* 추가모달 창안에서 '추가할 모달창'클릭시 나타날 스크롤 바 끝 */

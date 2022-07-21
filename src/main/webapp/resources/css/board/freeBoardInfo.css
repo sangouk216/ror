@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+.freeInfo-header {
+	width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 1rem auto;
+	padding-top: 1.7rem;
+	color: gray;
+	/* 	border-bottom: 1px solid black; */
+}
+
+#freeInfo-title {
+	/* 	margin-left: 5.3rem; */
+	/* 	padding: 0.3rem 2rem 0; */
+	color: #4c6048;
+	display: -webkit-box;
+}
+
+.free-body {
+	width: 80%;
+	margin: auto;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+}
+
+.free-header {
+	display: flex;
+	justify-content: space-between;
+	padding: 9px 0;
+	border-bottom: 1px solid;
+}
+
+.free-bno {
+	font-size: 1.2rem;
+}
+
+.free-writer {
+	margin-left: 10px;
+	margin: 4px 0 0 10px;
+}
+
+.free-title {
+	font-size: 1.5rem;
+}
+
+.free-sideGroup {
+	display: flex;
+	margin: 4px 10px 0 0;
+}
+
+.free-viewCnt {
+	margin-right: 10px;
+}
+
+.free-regdate {
+	font-size: 1.1rem;
+}
+
+.free-content {
+	min-height: 10rem;
+	border: 1px solid;
+    border-top: none;
+/* 	border-bottom: 1px solid; */
+	padding: 7px;
+}
+
+.free-addfile {
+	margin: 6px 0;
+}
+.free-addfile p{
+	margin-bottom:4px;	
+}
+.freeBtnGroup {
+	width: 80%;
+	margin: 7px auto;
+}
+
+.freeBtnGroup button {
+	height: 1.8em;
+	width: 4rem;
+	text-align: center;
+	border-radius: 10px;
+	font-size: 1.2em;
+	background-color: #4c6048;
+	color: #f1ffee;
+	border: none;
+	font-weight: bolder;
+}
+
+.freeReply {
+	width: 80%;
+	margin: 7px auto;
+	padding: 5px 0;
+/* 	border-top: 1px solid; */
+	border-bottom: 1px solid;
+}
+
+.freeReply p {
+	border-bottom: 1px solid;
+	font-size: 1.2rem;
+	padding: 8px 4px;
+}
+
+.freeReplyInfo {
+	display: flex;
+	margin: 7px 4px;
+}
+
+.freeReply-writer {
+	font-weight: bolder;
+	margin-right: 3px;
+}
+
+.freeReply-date {
+	margin-right: 3px;
+}
+
+.freeReply-text {
+	background-color: #F8F8F8;
+	display: flex;
+	padding: 1% 0;
+}
+
+.freeReply-text textarea {
+	width: 70%;
+}
+
+.login-user {
+	margin: auto 10px auto 5px;
+}
+
+.freeReplyBtn {
+	margin-left: 10px;
+	height: 2.5em;
+	width: 5rem;
+	text-align: center;
+	border-radius: 10px;
+	font-size: 1.2em;
+	background-color: #4c6048;
+	color: #f1ffee;
+	border: none;
+	font-weight: bolder;
+}

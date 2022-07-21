@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+.userCheckPage { /* 전체 영역. */
+/* 	width: 100%; */
+/* 	height: 80%; */
+	font-size: 1.2rem;
+	color: #898989;
+}
+
+.userCheckPage input{
+	font-size: 1rem;
+
+}
+.userCheckPage h1{
+	margin: 2rem 0 2rem 0;
+}
+
+#user-check,#user-checkState{
+	 font-size: 1em;
+	 color: #898989;
+}
+
+.user1-checkbox{
+	 display: flex;
+    margin: auto;
+    width: 90%;
+    height: 3rem;
+    justify-content: space-between;
+}
+
+#user1-button{
+	text-align: center;
+}
+
+#userRefSubmit {
+	border: 0;
+	border-radius: 20px;
+	background-color: #f1ffee;
+	width: 200px;
+	height: 50px;
+	font-size: 1.2rem;
+	color: #4c6048;
+	font-weight: bolder;
+	cursor: pointer;
+	margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.usersun{
+	display: flex;
+	margin: 1rem 0.5rem 0 0.5rem;
+
+}
+/* 조회 버튼 하고 끝. */
+.user2-userState { /* 유저 테이블 전체 영역 */
+	width: 94%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.user-info { /* 테이블 전체 */
+	width: 100%;
+	height: 100%;
+	border: 1px solid #898989;
+	text-align: center;
+}
+
+table>thead>tr>td {
+	border-bottom: 1px solid #898989;
+	font-size: 90%;
+	margin-bottom: 2%;
+}
+
+tbody {
+	border: 1px solid blue;
+}
+
+tbody>tr {
+	border-bottom: 1px solid #898989;
+}

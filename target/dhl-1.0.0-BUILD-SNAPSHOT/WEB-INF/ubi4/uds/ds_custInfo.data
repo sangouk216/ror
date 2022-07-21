@@ -1,0 +1,9 @@
+0,KIT_NO,키트번호
+1,CUST_NM,검사대상자
+2,PROD_NM,검사의뢰종류
+3,RS_DT,결과보고일
+4,ANLS_ACRC,검사정확도
+5,ANLS_ORG,의뢰기관명
+6,HPHN_NO,연락처
+7,BIRTH_YEAR,출생년도
+8,SEX,성별

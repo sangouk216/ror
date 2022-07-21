@@ -1,0 +1,16 @@
+0,ILL_NO,질병번호
+1,ILL_NM,질병명
+2,RISK_0,최소값_안전값
+3,RISK_33,안전값
+4,RISK_66,주의값
+5,RISK_100,고위험
+6,RLL_RISK,검사대상자 상대적 위험도
+7,KOR_AVR_RISK,한국인평균위험도
+8,KOR_AVR_RTO,한국인평균백분위
+9,CUST_RISK,검사대상자위험도
+10,CUST_RTO,검사대상자백분위
+11,RISK_TYPE,검사대상자백분위표기명칭
+12,CUST_RTO_ORD,출력순위
+13,ILL_IMG_URL,질병별이미지주소
+14,ILL_CAT_CD,질병구분코드
+15,ILL_GRP_NM,방사용질병명

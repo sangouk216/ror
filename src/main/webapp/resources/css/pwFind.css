@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+.pwFind{
+	margin: 100px 25%;
+    min-width: 45rem;
+}
+#gingle{
+	margin-top:14px;
+}
+.nemo{
+	width:300px;
+	height:100px;
+}
+
+.a09{
+	border: 2px solid #cdcaca;
+    height: 15rem;
+    margin-top: 25px;
+    text-align: center;
+    font-size: larger;
+}
+
+.pwinid{
+	height:3rem;
+	font-size: larger;
+	margin-top: 1.3rem;
+	padding-left: 5px;
+	display: table;
+	    margin-left: 10rem;
+}
+
+.infobtn, .infobtnpw, .infobtnid{
+	float: right;
+    width: 9rem;
+    background-color: #4c6048;
+    color: #f1ffee;
+    font-size: 20px;
+    margin: 1rem 0.4rem;
+    border-radius: 10px;
+    border-style: solid;
+}
+
+#ingo{
+	width: 9rem;
+    background-color: #4c6048;
+    color: #f1ffee;
+    font-size: 20px;
+    margin: -2.5rem 11rem 0rem 0rem;
+    border-radius: 10px;
+    border-style: solid;
+}
+
+#inok{
+	margin-right:175px;
+	margin-top: 1.8rem;
+}
+/* 모달창 시작 */
+.modal_close_btn, .pwchangemd{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.pwchangemd{
+	display: none;
+	    width: 400px;
+    height: 250px;
+	padding: 20px 60px;
+	background-color: #fefefe;
+	border: 1px solid #888;
+	border-radius: 3px;
+}
+/* 모달창 끝 */
+
+.pwchang{
+	    height: 3rem;
+    font-size: larger;
+    /* margin-top: 1.3rem; */
+    padding-left: 5px;
+}
+
+#imsipw{
+	margin-top:40px;
+	    width: -webkit-fill-available;
+}
+
+#imsipw2{
+	margin-top:20px;
+	    width: -webkit-fill-available;
+}

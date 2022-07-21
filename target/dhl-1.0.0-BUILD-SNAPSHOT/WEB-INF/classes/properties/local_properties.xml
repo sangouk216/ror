@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd" >
+<properties>
+	
+	<!-- Database -->
+	<entry key="db.poolName">POOL</entry>
+	<entry key="db.driverClassName">net.sf.log4jdbc.sql.jdbcapi.DriverSpy</entry>
+	<entry key="db.jdbcUrl"><![CDATA[jdbc:log4jdbc:mysql://192.168.3.67:3306/dhl?serverTimezone=Asia/Seoul]]></entry>
+	<entry key="db.username">dhl</entry>
+	<entry key="db.password">Dhl1234!</entry>
+	<entry key="db.minimumIdle">10</entry>
+	<entry key="db.maximumPoolSize">200</entry>
+	        
+    <!-- domain -->
+    <entry key="url.allowed.domain">localhost,127.0.0.1,192.168.3.78,192.168.3.93</entry>
+    <entry key="url.redirect.protocol">http://</entry>
+    <entry key="url.redirect.domain">localhost</entry>
+    <entry key="url.redirect.port">:80</entry>
+    
+    <!-- resources -->
+    <entry key="file.path.images">D:/app_dhl/web/src/main/webapp/resources/images/</entry>
+    <entry key="file.path.fonts">C:/Windows/Fonts</entry>
+    
+	<!-- ubi4 -->
+    <entry key="file.path.ubi4">D:/app_dhl/web/src/main/webapp/WEB-INF/ubi4/</entry>
+    <entry key="file.path.ubi4.uds">D:/app_dhl/web/src/main/webapp/WEB-INF/ubi4/uds/</entry>
+    <entry key="file.path.ubi4.jrf">D:/app_dhl/web/src/main/webapp/WEB-INF/ubi4/work/</entry>
+    <entry key="file.path.ubi4.images">D:/app_dhl/web/src/main/webapp/resources/images/report/</entry>
+    <entry key="file.path.ubi4.export">D:\app_dhl/web/file/ubi4/export/</entry>
+    
+  	<!-- fileUpload -->
+	<entry key="file.path.upload">D:/app_dhl/web/file/upload</entry>
+	<entry key="file.path.upload.ctr">D:/app_dhl/web/file/upload/ctr</entry>
+	<entry key="file.path.upload.prod">D:/app_dhl/web/file/upload/prod</entry>
+    
+</properties>

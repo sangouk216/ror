@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.recipe-header {
+	width: 68%;
+	margin: 1rem auto;
+	padding-top: 1.7rem;
+	color: gray;
+}
+
+.recipe-body {
+	width: 1025px;
+	margin: auto;
+}
+
+.recipeRegister-title, .freeUse-body, .freeUse-addfile {
+	font-size: 23px;
+}
+
+#recipe-title {
+	color: #4c6048;
+	display: -webkit-box;
+}
+
+#recipe-subtitle {
+	color: #4c6048;
+	font-size: 26px;
+}
+
+.recipeRegister-title {
+	margin: 1rem auto;
+	padding-top: 1.7rem;
+	display: flex;
+}
+
+.recipeRegister-title p {
+	margin: auto 0;
+	width: 15%;
+}
+
+.maincode-choice {
+    width: 170px;
+    margin-left: 10px;
+}
+.recipeRegister-title input {
+	margin-left: 10px;
+	width: 49rem;
+	height: 2.5rem;
+	font-size: 20px;
+	padding: 4px;
+}
+
+.recipe-content {
+	margin: 0.6rem auto;
+	display: flex;
+}
+.recipe-content p {
+	font-size: 23px;
+	width: 15%;
+}
+.recipe-content textarea {
+	margin-left: 10px;
+	width: 53rem;
+	height: 20rem;
+	min-width: 50rem;
+	min-height: 5rem;
+	max-width: 60rem;
+	font-size: 20px;
+    padding: 4px;
+}
+
+.recipe-addfile {
+	display: flex;
+	margin: 1.6rem 0;
+}
+
+.recipe-addfile p {
+	margin-right: 10px;
+}
+
+.recipe-addfileBtn {
+	height: 1.7rem;
+	width: 4rem;
+	border-radius: 10px;
+	font-size: 1.3rem;
+	background-color: #4c6048;
+	color: #f1ffee;
+	border: none;
+}
+
+.recipe-saveBtn, .recipe-backBtn {
+	margin-top: 10px;
+	margin-right: 10px;
+	height: 2.4rem; 
+	width : 9rem;
+	border-radius: 10px;
+	font-size: 1.5rem;
+	background-color: #4c6048;
+	color: #f1ffee;
+	border: none;
+	width: 9rem;
+}

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="comm.msg.send">
+	
+    <select id="selectKkoTmpl" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT TMPL_CD
+        	 , MSG
+             , CHAT_BTN1
+             , CHAT_BTN2
+             , CHAT_BTN3
+          FROM  <if test="dbNm != null">${dbNm}.</if>TB_MSG_KKO_TMPL_INFO
+         WHERE TMPL_CD = #{tmplCd}
+           AND USE_YN = '1'
+    </select>
+    <select id="selectMktTmpl" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT EVT_NO
+        	 , MMS_TPL
+          	 , '(광고)' AS MSG_TITL
+          FROM TB_DB_MKT_INFO
+         WHERE EVT_NO = #{evtNo}
+           AND USE_YN = '1'
+	</select>
+	<select id="selectCntsTmpl" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT CNTS_NO
+        	 , MMS_TPL
+          	 , '(광고)' AS MSG_TITL
+          FROM TB_CORP_CNTS_INFO
+         WHERE CNTS_NO = #{cntsNo}
+           AND USE_YN = '1'
+	</select>
+	
+    <insert id="insertKkoSendInfo" parameterType="java.util.HashMap">
+        INSERT INTO <if test="dbNm != null">${dbNm}.</if>TB_MSG_KKO_SEND_INFO
+        (      TYPE
+             , RESEND
+             , YELLOWID_KEY
+             , TMPL_CD
+             , PHONE
+             , CALLBACK
+             , REQDATE
+             , MSG
+             , CHAT_BUBBLE_BUTTON1
+             , CHAT_BUBBLE_BUTTON2
+             , CHAT_BUBBLE_BUTTON3
+             , ETC1
+             , ETC2
+             , ETC3
+             , ETC9
+        )
+        VALUES
+        (      'KAT'
+             , 'LMS'
+             , #{profKey}
+             , #{tmplCd}
+             , REPLACE(#{phone}, '-', '')
+             , #{callBack}
+             <if test="reqDate == null">
+             , NOW()
+             </if>
+             <if test="reqDate != null">
+             , STR_TO_DATE(#{reqDate}, '%Y%m%d%H%i%s')
+             </if>
+             , #{msg}
+             , #{chatBtn1}
+             , #{chatBtn2}
+             , #{chatBtn3}
+             , #{etc1}
+             , #{etc2}
+             , #{etc3}
+             <if test="loginMemNo != null">
+             , #{loginMemNo}
+             </if>
+             <if test="loginUserCd != null">
+             , #{loginUserCd}
+             </if>
+             <if test="loginMemNo == null and loginUserCd == null">
+             , 'SYS'
+             </if>
+        )
+    </insert>
+    
+     
+    
+    <select id="selectSlmmsTmpl" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        SELECT TMPL_CD
+             , MSG_TITL
+             , MSG
+          FROM TB_MSG_SLMMS_TMPL_INFO
+         WHERE TMPL_CD = #{tmplCd}
+           AND USE_YN = '1'
+    </select>
+    
+    <insert id="insertSmsSendInfo" parameterType="java.util.HashMap">
+        INSERT INTO TB_MSG_SMS_SEND_INFO
+        (      TR_PHONE
+             , TR_CALLBACK
+             , TR_SENDDATE
+             , TR_MSG
+             , TR_ETC1
+             , TR_ETC2
+             , TR_ETC3
+             , TR_ETC9
+             , TR_ETC10
+        )
+        VALUES
+        (      REPLACE(#{phone}, '-', '')
+             , #{callBack}
+             <if test="reqDate == null">
+             , NOW()
+             </if>
+             <if test="reqDate != null">
+             , STR_TO_DATE(#{reqDate}, '%Y-%m-%d %H:%i:%s')
+             </if>
+             , #{msg}
+             , #{etc1}
+             , #{etc2}
+             , #{etc3}
+             <if test="loginMemNo != null">
+             , #{loginMemNo}
+             </if>
+             <if test="loginUserCd != null">
+             , #{loginUserCd}
+             </if>
+             <if test="loginMemNo == null and loginUserCd == null">
+             , 'SYS'
+             </if>
+             , #{tmplCd}
+        )
+    </insert>
+    
+    
+    <insert id="insertLmsSendInfo" parameterType="java.util.HashMap">
+        INSERT INTO TB_MSG_MMS_SEND_INFO
+        (      SUBJECT
+             , PHONE
+             , CALLBACK
+             , REQDATE
+             , MSG
+             , TYPE
+             , ETC1
+             , ETC2
+             , ETC3
+             , ETC9
+             , ETC10
+        )
+        VALUES
+        (      #{msgTitl}
+             , REPLACE(#{phone}, '-', '')
+             , #{callBack}
+             <if test="reqDate == null">
+             , NOW()
+             </if>
+             <if test="reqDate != null">
+             , STR_TO_DATE(#{reqDate}, '%Y-%m-%d %H:%i:%s')
+             </if>
+             , #{msg}
+             , '0'
+             , #{etc1}
+             , #{etc2}
+             , #{etc3}
+             <if test="loginMemNo != null">
+             , #{loginMemNo}
+             </if>
+             <if test="loginUserCd != null">
+             , #{loginUserCd}
+             </if>
+             <if test="loginMemNo == null and loginUserCd == null">
+             , 'SYS'
+             </if>
+             , #{tmplCd}
+        )
+    </insert>
+    
+    
+    <insert id="insertMmsSendInfo" parameterType="java.util.HashMap">
+        INSERT INTO TB_MSG_MMS_SEND_INFO
+        (      SUBJECT
+             , PHONE
+             , CALLBACK
+             , REQDATE
+             , MSG
+             , TYPE
+			 , FILE_CNT
+			 , FILE_PATH1
+			 , FILE_PATH2
+			 , FILE_PATH3
+             , ETC1
+             , ETC2
+             , ETC3
+             , ETC9
+             , ETC10
+        )
+        VALUES
+        (      #{msgTitl}
+             , REPLACE(#{phone}, '-', '')
+             , #{callBack}
+             <if test="reqDate == null">
+             , NOW()
+             </if>
+             <if test="reqDate != null">
+             , STR_TO_DATE(#{reqDate}, '%Y-%m-%d %H:%i:%s')
+             </if>
+             , #{msg}
+             , '0'
+             , #{fileCnt}
+             , #{filePath1}
+             , #{filePath2}
+             , #{filePath3}
+             , #{etc1}
+             , #{etc2}
+             , #{etc3}
+             <if test="loginMemNo != null">
+             , #{loginMemNo}
+             </if>
+             <if test="loginUserCd != null">
+             , #{loginUserCd}
+             </if>
+             <if test="loginMemNo == null and loginUserCd == null">
+             , 'SYS'
+             </if>
+             , #{tmplCd}
+        )
+    </insert>
+</mapper>

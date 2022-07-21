@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+#garim {
+	height: 5rem;
+	border: 0 solid #4c6048;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #cbe7c8;
+	z-index: 50;
+}
+
+#ftClick {
+	border: 0;
+	border-radius: 20px;
+	background-color: #f1ffee;
+	width: 200px;
+	height: 50px;
+	font-size: 1.2rem;
+	color: #4c6048;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+#menu-wrapper {
+	padding: 0.75rem 1rem 0;
+	border-top: 1px solid #89ad82;
+	border-left: 1px solid #89ad82;
+	border-right: 1px solid #89ad82;
+	box-sizing: border-box;
+	position: fixed;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	max-width: 40rem;
+	min-width: 30rem;
+	z-index: 50;
+	height: 5em;
+	background: #cbe7c8;
+	border-radius: 5em 5em 0 0;
+	transition: height ease 1s;
+}
+
+#menu-wrapper.footer-choice ul {
+	padding: 0;
+}
+
+#menu-wrapper.is--active {
+	height: 75%;
+}
+
+#menu-wrapper.is--active.footer-choice {
+	visibility: visible;
+}
+
+#recipe-wrapper {
+	padding: 1rem 1rem 0;
+	box-sizing: border-box;
+	position: fixed;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	max-width: 40rem;
+	min-width: 30rem;
+	z-index: 80;
+	height: 5rem;
+	background: #f1ffee;
+	border-radius: 5rem 5rem 0 0;
+	text-align: center;
+	transition: height ease 1s;
+	display: none;
+}
+
+#recipe-move .is--show {
+	display: block;
+}
+/* 아래 슬라이드바 올라오는높이 */
+#recipe-wrapper.show--active {
+	height: 35%;
+}
+
+#recipe-wrapper.show--active .recipe-hide {
+	visibility: visible;
+}
+
+#recipe-wrapper .choice-FtMaterial {
+	overflow: overlay;
+	height: 80%;
+}
+
+.choice-FtMaterial::-webkit-scrollbar {
+	width: 10px;
+}
+
+.choice-FtMaterial::-webkit-scrollbar-thumb {
+	background-color: #2f3542;
+	border-radius: 10px;
+	background-clip: padding-box;
+	border: 2px solid transparent;
+}
+
+.choice-FtMaterial::-webkit-scrollbar-track {
+	background-color: grey;
+	border-radius: 10px;
+	box-shadow: inset 0px 0px 5px white;
+}
+
+.footer-terms {
+	display: none;
+	float: left;
+	width: 100%;
+	margin-bottom: 0.6rem;
+}
+
+.footer-choice {
+	margin: 20px;
+	text-align: left;
+	height: 60%;
+}
+
+.footer-ul.is--slied {
+  height: 69%;
+}
+
+.footer-ul {
+	list-style: none;
+	width: 100%;
+	overflow: overlay;
+	height: 128%;
+	padding: 0 0.7rem 0 1.5rem;
+}
+/* 스크롤 css 시작 */
+.footer-ul::-webkit-scrollbar {
+	width: 10px;
+}
+
+.footer-ul::-webkit-scrollbar-thumb {
+	background-color: #2f3542;
+	border-radius: 10px;
+	background-clip: padding-box;
+	border: 2px solid transparent;
+}
+
+.footer-ul::-webkit-scrollbar-track {
+	background-color: grey;
+	border-radius: 10px;
+	box-shadow: inset 0px 0px 5px white;
+}
+
+/* 스크롤 css 끝 */
+.main-footer {
+	text-align: center;
+}
+
+#footerbody {
+	width: 50%;
+	margin: auto;
+}
+
+button {
+	cursor: pointer;
+}
+
+.foot-Ent {
+	background: #cbe7c8;
+	color: #4c6048;
+	border: 0;
+	margin: 0 1rem 1rem;
+	font-size: 1em;
+	font-weight: bolder;
+	width: 200px;
+	height: 50px;
+	border-radius: 20px;
+}
+
+#recipe_move {
+	border: 0.3rem solide red;
+	text-align: center;
+	left: 0;
+	right: 0;
+	bottom: -5%;
+	padding: 5px;
+	margin: 0 auto;
+	position: fixed;
+}
+/* 전체보기 버튼 */
+.ft-read {
+	border: 0;
+	padding: 0.3rem;
+	margin-right: 1.6rem;
+	margin-bottom: 0.5rem;
+	margin-top: -0.1rem;
+	font-size: 0.9em;
+	float: right;
+	color: #4c6048;
+	background: #f1ffee;
+	border-radius: 1rem;
+}
+
+.footer-material {
+	border: 1.5px solid #ffffff;
+	color: #000;
+	background-color: white;
+	font-size: 1rem;
+	padding: 0.938em;
+	border-radius: 0.8em;
+	width: 30%;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: 600;
+	margin: 5px 3px 0px 4px;
+}
+
+.ft-li {
+	font-size: 1.2em;
+	margin-top: 20px;
+	box-sizing: border-box;
+}
+
+/* 마우스 오버시 색 변함. */
+.footer-choice button:hover {
+	background: #f1ffee;
+	color:#4c6048;
+	font-weight: bolder;
+}
+
+.button-active {
+	background-color: #4c6048;
+}
+
+.button-fontcolor {
+	color: white;
+}
+/* 미디어쿼리 핸드폰화면 */
+/* @media screen and (max-width: 320px) {
+	#menu-wrapper {
+		width: 80vw;
+		height: 5em;
+	}
+	#menu-wrapper.is--active {
+		height: 80vw;
+	}
+	#ftClick {
+		border: 0;
+		border-radius: 3rem;
+		background-color: #ffda33;
+		width: 20rem;
+		height: 5rem;
+		font-size: 2rem;
+		color: white;
+		cursor: pointer;
+	}
+} */

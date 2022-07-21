@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+.freeUse-header {
+	width: 80%;
+	margin: 1rem auto;
+	padding-top: 1.7rem;
+	color: gray;
+}
+
+.freeUse-body {
+	width: 1025px;
+	margin: auto;
+}
+
+.freeUseRegister-title, .freeUse-body, .freeUse-addfile {
+	font-size: 23px;
+}
+
+#freeUse-title {
+	color: #4c6048;
+	display: -webkit-box;
+}
+
+#freeUse-subtitle {
+	color: #4c6048;
+	font-size: 26px;
+}
+
+.freeUseRegister-title {
+	margin: 1rem auto;
+	padding-top: 1.7rem;
+	display: flex;
+}
+
+.freeUseRegister-title p {
+	margin: auto 0;
+}
+
+.freeUseRegister-title input {
+	margin-left: 10px;
+	width: 60rem;
+	height: 2.5rem;
+	font-size: 20px;
+	padding: 4px;
+}
+
+.freeUse-content {
+	margin: 0.6rem auto;
+	display: flex;
+}
+
+.freeUse-content textarea {
+	margin-left: 10px;
+	width: 60rem;
+	height: 20rem;
+	min-width: 60rem;
+	min-height: 5rem;
+	max-width: 60rem;
+	font-size: 20px;
+    padding: 4px;
+}
+
+.freeUse-addfile {
+	display: flex;
+	margin: 0.6rem 0;
+}
+
+.freeUse-addfile p {
+	margin-right: 10px;
+}
+
+.freeUse-addfileBtn {
+	height: 1.7rem;
+	width: 4rem;
+	border-radius: 10px;
+	font-size: 1.3rem;
+	background-color: #4c6048;
+	color: #f1ffee;
+	border: none;
+}
+
+.freeUse-saveBtn, .freeUse-backBtn {
+	margin-top: 10px;
+	margin-right: 10px;
+	height: 2.4rem; 
+	width : 9rem;
+	border-radius: 10px;
+	font-size: 1.5rem;
+	background-color: #4c6048;
+	color: #f1ffee;
+	border: none;
+	width: 9rem;
+}

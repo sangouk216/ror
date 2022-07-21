@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+#divpop {
+	position: absolute;
+	width: 100%;
+	height: 184%;
+	z-index: 1200;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	top: 0;
+}
+
+.pop-left-area, .pop-right-area {
+	width: 25%;
+}
+
+.pop-center-area {
+	width: 50%;
+	min-width: 400px;
+	margin-top: 7rem;
+	max-width: 50vw;
+}
+
+.pop-tbl {
+	min-width: 18rem;
+	text-align: center;
+	z-index: 1200;
+	margin: auto;
+}
+
+.pop-chk-space input[type=checkbox] {
+	zoom: 1.5;
+	margin-right: 5px;
+	float: left;
+}
+
+.pop-chk-text {
+	width: 15rem;
+}
+
+.tbl-head {
+	height: 20%;
+	background-color: #ffda33;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.konggee {
+	color: red;
+	font-weight: 600;
+	padding: 10px;
+}
+
+.board-date {
+	text-align: right;
+	padding-right: 10px;
+}
+
+.tbl-body {
+	border-top: double;
+	border-bottom: groove;
+	height: 70%;
+	background-color: white;
+	padding: 25px;
+	overflow-y: auto;
+}
+
+.tbl-btt-ctl {
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+}
+
+.tbl-btt-ctl form {
+	width: 100%;
+}
+
+.pop-close-btn {
+	color: black;
+	background-color: red;
+	border-radius: 5px;
+	padding: 5px;
+	float: right;
+	margin-right: 9px;
+}
+
+.pop-chk-space {
+	margin: 4px 0 0 7px;
+	font-weight: 600;
+	float: left;
+}
+
+.tbl-head-info {
+	background-color: #ffda33;
+	border: none;
+	font-weight: 600;
+	font-size: x-large;
+}
+
+.tbl-body-info {
+	max-height: 250px;
+	min-width: 280px;
+	white-space: pre;
+	font-size: 20px;
+}

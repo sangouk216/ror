@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+.login-container{
+	text-align: center;
+    margin: 6rem auto 1rem;
+    padding: 1rem;
+    width: 33rem;
+    height: 20rem;
+    border: 1px solid #204A3F;
+    border-radius: 10px;
+}
+.loginForm{
+	margin: 1rem auto;
+}
+
+.loginForm label {
+	font-size: 1.1rem;
+	line-height: 1.6;
+	color: #204A3F;
+	margin-right: 0.5em;
+}
+
+.loginInput{
+	border: 1px solid #204A3F;
+	font-size: 1.3rem;
+	width: 25rem;
+    height: 4rem;
+    font-family: "Malgun Gothic", "맑은 고딕";
+}
+#loginId,#loginPw{
+	padding: 5px 15px;
+	border-radius: 10px;
+	margin-bottom: 0.7rem;
+}
+
+.rememberLogin{
+	width: 24rem;
+    margin: 0 auto;
+    text-align: left;
+}
+.rememberLoginInput{
+	zoom: 1.6;
+    float: left;
+    margin: 2px;
+}
+.loginTryBtn{
+	margin-top: 5px;
+    width: 25rem;
+    height: 3.2rem;
+    background-color: #204A3F;
+    color: #fff;
+    font-size: 1.6rem;
+    border-radius: 7px;
+    border: none;
+    font-weight: bolder;
+}
+.searchInfo{
+	margin-top: 2rem;
+}
+.searchInfo span{
+	text-decoration: none;
+	font-size: 18px;
+}
+/* 링크 글자 색깔 */
+a:link {
+  color : #204A3F;
+}
+/* a:visited {
+  color : black;
+}*/
+
+/* 링크 글자 클릭 중 색깔 */
+a:active {
+  color : green
+}

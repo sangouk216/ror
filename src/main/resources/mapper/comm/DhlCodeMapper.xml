@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="comm.code">
+	
+	<select id="selectCommCdList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT DTL_CD
+			 , CD_NM
+			 , REF_CD01
+		  FROM TB_CODE_INFO
+		 WHERE DTL_CD != '*'
+		   AND COMM_CD = #{commCd}
+		   AND USE_YN = '1'
+		 ORDER BY ORD
+	</select>
+	
+	<select id="selectChnlList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT CHNL_CD
+			 , CHNL_NM
+		  FROM TB_CHNL_INFO
+		 WHERE 1=1
+		   <if test='chnlType == "IN"'>
+		   AND IN_CHNL_YN = '1'
+		   </if>
+		   <if test='chnlType == "OUT"'>
+		   AND OUT_CHNL_YN = '1'
+		   </if>
+		   <if test="chnlCat != null">
+		   AND CHNL_CAT_CD = #{chnlCat}
+		   </if>
+		 ORDER BY CHNL_NM
+	</select>
+	
+	<select id="selectBatchList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT BAT_CD
+			 , BAT_NM
+		  FROM TB_BAT_INFO
+		 WHERE USE_YN = '1'
+	</select>
+	
+	<select id="selectMdexCtrList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT CTR_NO
+			 , CTR_NM
+		  FROM TB_MDEX_CTR_INFO
+		 WHERE USE_YN = '1'
+		 ORDER BY CTR_NM
+	</select>
+	
+	<select id="selectMdexCorpList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT CORP_NO
+			 , CORP_NM
+		  FROM TB_MBS_CORP_INFO
+		 WHERE USE_YN = '1'
+		 ORDER BY CORP_NM
+	</select>
+	
+	<select id="selectMdexMktList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT EVT_NO
+			 , EVT_NM
+		  FROM TB_DB_MKT_INFO
+		 WHERE ST_CD = '1'
+		 ORDER BY EVT_NM
+	</select>
+	
+	<select id="selectMdexMktList2" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT CTR_NO
+			 , FN_DECRYPT(TEL_NO) AS TEL_NO
+		  FROM TB_CTR_MKT_SEND_TEL_INFO
+	
+	</select>
+	
+</mapper>

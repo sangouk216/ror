@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "NanumSquare";
+	src: url('../font/NanumSquareR.woff') format('woff');
+	font-weight: normal;
+	font-display: swap;
+}
+
+html {
+	overflow-x: overlay;
+}
+
+html::-webkit-scrollbar {
+	width: 13px;
+}
+
+html::-webkit-scrollbar-thumb {
+	background-color: #2f3542;
+	border-radius: 10px;
+	background-clip: padding-box;
+	border: 2px solid transparent;
+}
+
+html::-webkit-scrollbar-track {
+	background-color: grey;
+	border-radius: 10px;
+	box-shadow: inset 0px 0px 5px white;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 7.5rem 0 5rem;
+}
+.nav-loginBtn{
+    margin-top: 1rem;
+    width: 22rem;
+    height: 3.2rem;
+    background-color: #4C6048;
+    color: #fff;
+    font-size: 1.6rem;
+    border-radius: 7px;
+    border: none;
+    font-weight: bolder;
+}
+
+.headermenu {
+	height: 7.5rem;
+	border-bottom: 1px solid gray;
+	width: 100%;
+	position: fixed;
+	background: #fff;
+	z-index: 150;
+	padding: 0.1rem;
+	font-size: 12px;
+	background: #FFF;
+	color: #333;
+	margin: 0;
+}
+
+.logo {
+	width: 15rem;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+.slide-btn {
+	position: absolute;
+	top: 13%;
+	left: 5%;
+	z-index: 100;
+}
+
+.home-icon {
+	width: 100%;
+	cursor: pointer;
+}
+
+.menu-icon {
+	width: 100%;
+	cursor: pointer;
+}

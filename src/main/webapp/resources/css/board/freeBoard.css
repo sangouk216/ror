@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+.freeboard-header {
+	width: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 1rem auto;
+	padding-top: 1.7rem;
+	color: gray;
+	/* border-bottom: 1px solid black; */
+}
+a { 
+   text-decoration: none;
+   color: black;
+}
+
+#freeboard-title {
+/* 	margin-left: 5.3rem; */
+/* 	padding: 0.3rem 2rem 0; */
+	color: #4c6048;
+	display: -webkit-box;
+}
+
+.freeboard-search_box {
+	width: 520px;
+	height: 52px;
+	border: 2px solid #cbe7c8;
+	display: flex;
+	padding: 0.5rem;
+	border-radius: 1rem;
+
+}
+
+.freeboard-search_box input {
+	width: 90%;
+	height: 30px;
+	padding-left: 1rem;
+	border: none;
+	outline: none;
+	font-size: 1.7rem;
+}
+
+.freeboard-search_box button {
+	box-sizing: border-box;
+	position: relative;
+	top: -3.5px;
+	margin: 0;
+	padding: 0;
+	border: 0 solid #03cf5d;
+	background: #fff;
+	cursor: pointer;
+	top: -3.5px;
+}
+
+.freeboard-search_box i {
+	color: white;
+	font-size: 22px;
+	text-align: center;
+}
+
+.freeboard-search-choice {
+	height: auto;
+	font-size: 1.5rem;
+	text-align: center;
+	border: 0;
+}
+
+.freeboard-search-text {
+	height: 2.5rem;
+}
+
+.freeboard-writeBtn{
+	border: 1px solid #4c6048;
+    border-radius: 5px;
+    width: 5rem;
+    height: 2.5rem;
+    background-color: #f1ffee;
+    color: #4c6048;
+    font-size: 1.4rem;
+}
+
+table {
+	font-size: 1.5rem;
+	width: 80%;
+	margin: 2rem auto;
+	display: table;
+	border-collapse: collapse;
+	box-sizing: border-box;
+	border-spacing: 2px;
+	border-color: grey;
+	border-top: 1px solid #cbe7c8;
+	border-bottom: 1px solid #cbe7c8;
+	text-align:center;
+	color:#4c6048;
+}
+
+tr {
+	border-bottom: 1px solid #cbe7c8;
+	padding: 10px;
+	height: 2.5rem;
+}
+
+
+thead {
+	font-weight: bolder;
+	display: table-header-group;
+	vertical-align: middle;
+}
+
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+}
+.free-title{
+	font-size: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+    text-align: left;
+    padding: 4px 0 0rem 1rem;
+}
+.free-writer,.free-regdate,.free-viewCnt,.free-likeCnt{
+	font-size: 19px;
+}
+
+.size01 {
+	width: 9%;
+}
+
+.size02 {
+	width: 45%;
+}
+
+.size03 {
+	width: 12%;
+}
+
+.size04 {
+	width: 12%;
+}
+
+.size05 {
+	width: 8%;
+}
+
+.size06 {
+	width: 8%;
+}
+
+.freeboard-paging{
+	display: block;
+    margin: 0 0 20px 0;
+    width: 100%;
+    text-align: center;
+}
+.freeboard-paging li{
+	display: inline-block;
+    margin: 0 10px;
+}

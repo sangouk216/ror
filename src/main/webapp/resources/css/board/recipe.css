@@ -1,0 +1,220 @@
+
+@charset "UTF-8";
+
+body{
+	text-align: -webkit-center;
+}
+font{
+	font: normal 13px NanumSquareR;
+	color : #4c6048;
+}
+.uploder{
+	width:500px;
+}
+#main-image{
+	border-radius: 20px;
+	width: 50%;
+}
+
+#bookmark-show{
+	width : 30px;
+	
+}
+
+#bookmark-hide{
+	width : 30px;
+}
+
+#bookmark-show1{
+	width : 30px;
+}
+
+#bookmark-hide1{
+	width : 30px;
+}
+
+.uptime{
+	color: gray;
+	padding: 10px 0 0 0;
+	width:97%;
+	text-align: right;
+}
+.nav-right{
+	text-align : right;
+	padding : 1%;
+}
+
+.recipe-title{
+	padding : 12px 0;
+	font-size : 20px;
+}
+
+#recipe-sub-title{
+	font-size : 17px;
+	overflow: hidden;
+   text-overflow: ellipsis;
+   margin: 0.3rem 0 0.3rem;
+   padding: 0 0 20px;
+   display: -webkit-box;
+   height: 1rem;
+   WIDTH: 90%;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+   word-wrap: break-word;
+   white-space: normal;
+}
+
+.item{
+	display: flex;
+	justify-content: space-around;
+	border-bottom : 1px solid #ffda33;
+	width: 100%;	
+}
+.item-section{
+	width: 45%;	
+}
+.item-section p{
+	font-size: 20px;
+}
+.section{
+	width:100%;
+} 
+.items{
+    width: 25%;
+    padding: 0.938em;
+    font-weight: 600;
+    margin: 5px;
+    float: left;
+}
+
+.items1{
+    width: 42%;
+    padding: 0.938em;
+    font-weight: 600;
+    margin: 5px;
+    float: left;
+}
+
+.recipe-item{
+	font-size: 20px;
+	color : gray;
+	width: 100%;
+}
+
+.recipe-order{
+	line-height: 30px;
+}
+
+.recipe-order-num{
+	margin: 5%;
+}
+.recipe-order-num p{
+	width: 450px;
+}
+#recipe-list{
+	width: 450px;
+	border-radius: 20px;
+}
+
+
+.cover-recipe-button{
+    display: block;
+    position: relative;
+    left: 35%;
+    padding: 2% 0;
+}
+.recipe-button{
+	outline: none;
+    border: none;
+    text-align: center;
+    width: 60px;
+    background: #ffda33;
+    border-radius: 10%;
+    margin: 0 0 0 100px;
+}
+
+.recipe-button-update{
+	outline: none;
+    border: none;
+    text-align: center;
+    width: 60px;
+    height: 25px;
+    background: #ffda33;
+    border-radius: 10%;
+    margin: 0 0 0 100px;
+}
+
+.recipe-button-delete{
+	outline: none;
+    border: none;
+    text-align: center;
+    width: 60px;
+    height: 25px;
+    background: #ffda33;
+    border-radius: 10%;
+	
+}
+.comment{
+	border-top: 1px solid #ffda33;
+	padding: 3% 0 3% 5%;
+	text-align: left;
+}
+#comment-top{
+	color: #a9a9a9;
+}
+.comment-a{
+	display: flex;
+	margin: 0 0 3%;
+}
+.comment-id{
+	text-align: left;
+	padding: 0 0 0 3%;
+}
+.comment-input{ 
+    outline: none;
+    width: 1263px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #ffda33;
+    margin: 0 0 0 70px;
+}
+
+.comment-button{
+	outline: none;
+    border: none;
+    text-align: center;
+    width: 60px;
+    background: #ffda33;
+    border-radius: 10%;
+    margin: 0px 95px 0px 20px;
+}
+.comment-button-update{
+	height: 25px;
+	outline: none;
+    border: none;
+    text-align: center;
+    width: 60px;
+    background: #ffda33;
+    border-radius: 10%;
+    margin: 0 0 0 100px;
+}
+.comment-button-delete{
+	height: 25px;
+	outline: none;
+	margin-left: 5px;
+	border: none;
+	text-align: center;
+	width: 60px;
+	background: #ffda33;
+	border-radius: 10%;
+}
+.comment-id{
+	display: flex;
+	text-align: left;
+    padding: 0 0 100px 75px;
+}
+#result{
+	width: 70%;
+	text-align: left;
+    padding: 0 0 0 3%;
+}

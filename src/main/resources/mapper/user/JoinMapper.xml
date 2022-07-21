@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="comm.join">
+
+	<insert id="userJoin" parameterType="JoinVO">
+		insert into 
+		TB_MEM_INFO 
+		(
+		CUST_ID
+		, CUST_PW
+		, CUST_NM
+		, CUST_TEL
+		, MNG_YN
+		, MNG_NM
+		)values (
+		#{custId}
+		,#{custPw}
+		,#{custNm}
+		,#{custTel}
+		,#{mngYn}
+		,#{mngNm}
+		)
+	</insert>
+	
+	<select id="selectidCheckJoin" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		select count(*) AS ID_CNT 
+		from 
+		new_schema.tb_mem_info 
+		where 
+		CUST_ID=#{custId};
+	</select>
+	
+	<select id="selectNmCheckJoin" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		select count(*) AS NM_CNT 
+		from 
+		new_schema.tb_mem_info 
+		where 
+		CUST_NM=#{custNm};
+	</select>
+	
+	<select id="pwfiCheck" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		SELECT count(*) AS IDPHNUM_CNT 
+		from 
+		new_schema.tb_mem_info 
+		where
+		CUST_ID=#{custId} AND CUST_TEL=#{custTel};
+    </select>
+	
+	<update id="imsiPwCh" parameterType="JoinVO">
+	    UPDATE 
+        new_schema.TB_MEM_INFO
+        SET
+        CUST_PW = #{custPw}
+        WHERE 1=1
+        AND 
+        CUST_ID = #{custId};
+	</update>
+	
+	<select id="idfiCheck" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		SELECT count(*) AS PHNUM_CNT 
+		from 
+		new_schema.tb_mem_info 
+		where
+		CUST_TEL=#{custTel};
+    </select>
+    
+    <select id="selectId" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		SELECT CUST_ID as custId
+		from 
+		new_schema.tb_mem_info 
+		where
+		CUST_TEL=#{custTel};
+    </select>
+    
+    
+    
+    
+   
+</mapper>
